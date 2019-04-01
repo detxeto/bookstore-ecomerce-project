@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BookisThor</title>
+
+	<!--	bootstrap link-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!--css link-->
+	<link rel="stylesheet" href="style/main.css">
+	<!--	google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Germania+One" rel="stylesheet">
+	<!--	-----ibb-->
+	<!--<script async src="https://imgbb.com/upload.js"></script>-->
+</head>
+
+<body>
+	<div id="app">
+		<header>
+
+			<div class="navbar dropdown navVar logoPosition ">
+				<button class="btn  dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<div class="navIcon rotateIcon"> </div>
+				</button>
+
+				<div class="dropdown-menu navBar " aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item   navVar " href="#" v-on:click="makeActive('indexMain')">Home</a>
+					<a class="dropdown-item  navVar  " href="#" @click="makeActive('aboutMain')">About</a>
+					<a class="dropdown-item  navVar  " href="#" @click="makeActive('allBookMain')">Books</a>
+
+					<a class="dropdown-item  navVar  ¡" href="#" @click="makeActive('allComicMain')">Comics</a>
+
+				</div>
+
+				<div class="logo" @click="makeActive('indexMain')">
+
+				</div>
+
+
+			</div>
+		</header>
+
+
+
+
+		<div class="shopIcon col-xs-12 col-sm-12  col-md-12 col-xl-6 ">
+
+
+			<div class="linksToGallery ">
+				<div class="booksLink">
+					<div href="#" @click="makeActive('allBookMain')">
+						<h4>Books</h4>
+					</div>
+				</div>
+				<div class=" comicLink">
+					<div href="#" @click="makeActive('allComicMain')">
+						<h4>Comics</h4>
+					</div>
+				</div>
+
+
+			</div>
+
+
+
+			<div>
+				<a href="#" @click="makeActive('cartMain')">
+					<div class="cartLogo"></div>
+				</a>
+
+				<div class="textShoIcon">
+					<h6 class="IconItem">0</h6>
+				</div>
+			</div>
+		</div>
+		<!--	-----------indexMain------------------------>
+
+		<div class="indexMain" v-show="active==='indexMain'">
+			<div class="divMain">
+				<div class="container  col-sm-10 col-xl-6">
+					<div id="carouselFade" class="carousel slide carousel-fade " data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active ">
+								<img src="https://preview.ibb.co/hBtc0a/Gerard_min.png" class="d-block w-100 " alt="...">
+							</div>
+							<div class="carousel-item" v-for="pic in book">
+								<img :src="pic.portada" class="d-block w-100  " alt="...">
+							</div>
+						</div>
+						<a class="carousel-control-prev" href="#carouselFade" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carouselFade" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+
+
+
+			</div>
+			<div class="divMain">
+				<div class="container  col-sm-10 col-xl-6">
+					<div id="carouselExampleFade2" class="carousel slide carousel-fade " data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="https://i.ibb.co/yszc6Mm/cm.jpg" class="d-block w-100 " alt="...">
+							</div>
+							<div class="carousel-item  " v-for="pics in comic">
+								<img :src="pics.detalle" class="d-block w-100  " alt="...">
+							</div>
+
+						</div>
+						<a class="carousel-control-prev" href="#carouselExampleFade2" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carouselExampleFade2" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+
+		<!--	-------------------AboutMain------------>
+
+		<div class="aboutMain" v-show="active==='aboutMain'">
+
+			<div class="container">
+				<div>
+					<div class="textUnderline marginTop">
+						<h5 class="font">Description:</h5>
+					</div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lacus nulla, aliquam in pulvinar at, porttitor ut velit. In hac habitasse platea dictumst. Sed efficitur lectus ut purus porta, nec maximus urna dictum. Vivamus sollicitudin ex sed justo cursus placerat sed in lacus. Praesent egestas euismod tellus, eu aliquet massa ultricies id. Aliquam eleifend metus ut diam congue, eget malesuada augue hendrerit. Etiam porta lacus nec diam eleifend, in tincidunt augue congue. Maecenas vitae leo et magna dignissim tristique non quis nisl. Phasellus ut felis orci. Donec consectetur quam at vestibulum molestie.</p>
+					<p>Nam faucibus, justo eget pretium volutpat, enim leo vulputate magna, nec euismod eros sem quis massa. Phasellus consectetur enim nec turpis tincidunt porttitor. Nulla aliquet vehicula felis, a molestie nisi sodales eu. Sed non ultrices ex. Praesent metus est, consequat nec eros at, hendrerit elementum urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam id lacinia libero. Vestibulum tristique laoreet nibh, ac aliquet sem tempor eget. Praesent aliquam ligula ut erat volutpat, sed volutpat nunc condimentum. Maecenas accumsan ac metus sed accumsan. Donec placerat lectus nec vulputate iaculis. Suspendisse ultricies libero ut porttitor condimentum.</p>
+				</div>
+				<div>
+					<div class="textUnderline">
+						<h5 class="font">Location:</h5>
+					</div>
+					<div class="marginTop"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.715181567532!2d2.190085115426227!3d41.4019913792628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a33d2f431d45%3A0x3f1fd71f16834f39!2sUbiqum+Code+Academy!5e0!3m2!1ses!2ses!4v1553688112937" width="350" height="200" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+				</div>
+			</div>
+
+
+
+
+
+		</div>
+
+		<!--	----------------allBookMain------>
+
+		<div class="allBookMain" v-show="active==='allBookMain'">
+			<div class="booksMain">
+				<div class="filterBar container-fluid ">
+
+					<div><input type="text" placeholder="search.." class="inputSearch" v-model="bookSearch"></div>
+					<div class="dropdown ">
+						<button class="btn filterButton dropdown-toggle font" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Filter by:
+						</button>
+						<div class="dropdown-menu downMenuFilter " aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item font " href="#">Essay</a>
+							<a class="dropdown-item font " href="#">Novel</a>
+							<a class="dropdown-item font " href="#">Sci-Fi</a><a class="dropdown-item font " href="#">Self Help</a>
+						</div>
+					</div>
+					<div>
+						<div class="btn-group" role="group" aria-label="Basic example">
+							<button type="button" class="btn filterButton font">En</button>
+							<button type="button" class="btn filterButton font">Es</button>
+
+						</div>
+					</div>
+				</div>
+				<div class="  container divSizeFlip" v-for="buk in nameFilter">
+					<div class="imgBook flip-box container">
+						<div class="imgBook flip-box-inner">
+							<div class=" flip-box-front ">
+								<img :src="buk.portada" alt="CoverImg" class=" imgBook">
+							</div>
+							<div class="imgBook flip-box-back backPosition paddingTop orderContent">
+								<div>
+									<h2 class="font">{{buk.titulo}}</h2>
+									<h2 class="font">{{buk.editorial}}</h2>
+								</div>
+								<div class="innerInfo">
+									<div class="starLogo">
+									</div>
+									<div>
+										<h2 class="font valBox">{{buk.valoracion}}</h2>
+									</div>
+								</div>
+								<div class="innerInfo">
+									<div class="priceLogo">
+									</div>
+									<div>
+										<h2 class="font priceBox ">{{buk.precio}}</h2>
+									</div>
+								</div>
+								<div class="innerInfo ">
+									<div>
+										<button v-on:click="detailBook=buk,makeActive('detailMain')" class="  font divButtons">detail</button></div>
+									<div><button class="font divButtons innerInfoButton" @click="makeActive('cartMain')">add to Cart</button></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!----------------comicMain--------------->
+
+		<div class="allComicMain" v-show="active==='allComicMain'">
+
+			<div class="booksMain">
+
+				<div class="filterBar container-fluid ">
+
+					<div><input type="text" placeholder="search.." class="inputSearch" v-model="bookSearch"></div>
+					<div class="dropdown">
+						<button class="btn filterButton font dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Filter by:
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item font" href="#">Comic</a>
+							<a class="dropdown-item font" href="#">Grafic Novel</a>
+
+						</div>
+					</div>
+					<div>
+						<div class="dropdown">
+							<button class="btn filterButton font dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								ed:
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item font" href="#">Dc</a>
+								<a class="dropdown-item font" href="#">Marvel</a>
+
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="dropdown">
+							<button class="btn font filterButton dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								id:
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item  font" href="#">En</a>
+								<a class="dropdown-item  font" href="#">Es</a>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="  container divSizeFlip" v-for="com in comicFilter">
+					<div class="imgBook flip-box container">
+						<div class="imgBook flip-box-inner ">
+							<div class="imgBook flip-box-front ">
+								<img :src="com.portada" alt="imgComic" class=" imgBook">
+							</div>
+							<div class="imgBook flip-box-back backPosition paddingTop orderContent">
+								<div>
+									<h3 class="font">{{com.titulo}}</h3>
+									<h3 class="font">{{com.editorial}}</h3>
+								</div>
+								<div class="innerInfo">
+									<div class="starLogo">
+									</div>
+									<div>
+										<h2 class="font valBox">{{com.valoracion}}</h2>
+									</div>
+								</div>
+								<div class="innerInfo">
+									<div class="priceLogo">
+									</div>
+									<div>
+										<h2 class="font priceBox ">{{com.precio}}</h2>
+									</div>
+								</div>
+								<div class="innerInfo">
+									<div>
+										<button v-on:click="detailBook=com,makeActive('detailMain')" class="  font divButtons">detail</button></div>
+									<div><button class="font divButtons innerInfoButton" @click="makeActive('cartMain')">add to Cart</button></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+
+
+			</div>
+
+
+
+
+		</div>
+
+		<!--------------------detailMain------------>
+
+		<div class="detailMain" v-show="active==='detailMain'">
+
+			<div class="booksMain">
+
+
+				<div class=" container-fluid">
+					<div class="font colorFont">
+						<h5 class="fontSize">{{detailBook.titulo}}</h5>
+					</div>
+					<div class="detailPosition container">
+						<div><img :src="detailBook.portada" alt="" class="imgSizeDetail"></div>
+						<div class="detailsNextToImg">
+							<div class="insideDetailsNextToImg">
+								<div class="priceLogoWhite"></div>
+								<div class="font colorFont">
+									<h5 class="fontSize">{{detailBook.precio}}</h5>
+								</div>
+							</div>
+							<div class="insideDetailsNextToImg">
+								<div class="starLogoWhite"></div>
+								<div class="font colorFont">
+									<h5 class="fontSize">{{detailBook.valoracion}}</h5>
+								</div>
+							</div>
+							<button class="font" @click="makeActive('cartMain')">add to Cart</button>
+
+						</div>
+
+					</div>
+					<div class="locateButtons">
+						<button class="font" @click="makeActive('allBookMain')">back to Books</button>
+						<button class="font" @click="makeActive('allComicMain')">back to Comics</button>
+
+					</div>
+
+
+				</div>
+
+				<div>
+
+					<div class="container details">
+
+						<h3>Description:</h3>
+						<p>{{detailBook.descripcion}}</p>
+					</div>
+
+					<div class="container details">
+						<h3 >Details:</h3>
+						<h5 >Title: </h5>
+						<h5 class="underLineOn" > {{detailBook.titulo}}</h5>
+						<h5>Author:</h5>
+						<h5 class="underLineOn" > {{detailBook.autor}}</h5>
+						<h5>Editorial:</h5>
+						<h5 class="underLineOn" >{{detailBook.editorial}}</h5>
+						<h5>Genre:</h5>
+						<h5 class="underLineOn">{{detailBook.genero}}</h5>
+						<h5>Language:</h5>
+						<h5 class="underLineOn">{{detailBook.lenguaje}}</h5>
+						<h5>Publication date:</h5>
+						<h5 class="underLineOn" >{{detailBook.fecha}}</h5>
+						<h5>Publication city:</h5>
+						<h5 class="underLineOn">{{detailBook.ciudad}}</h5>
+						<h5>Measurements:</h5>
+						<h5 class="underLineOn" >{{detailBook.dimensiones}}</h5>
+						<h5>Pages:</h5>
+						<h5 class="underLineOn">{{detailBook.paginas}}</h5>
+
+
+
+					</div>
+
+
+
+				</div>
+
+
+
+
+
+
+
+			</div>
+
+
+
+
+		</div>
+
+		<!------------------cartMain------------>
+
+		<div class="cartMain" v-show="active==='cartMain'">
+
+			<div class="booksMain">
+				<div class="container-fluid addButton">
+					<button class=" font " @click="makeActive('allBookMain')">Back to Books</button>
+					<button class=" font " @click="makeActive('allComicMain')">Back to Comics</button>
+				</div>
+
+				<div class="card ">
+					<div class="container-fluid">
+						<h6 class="font titleCartDiv fontSizeCart">wolverine/dead-end</h6>
+					</div>
+					<div class="cartDiv">
+						<div><img src="images/comics/wolverine/dead-end.jpg" alt="portada" class="imgCartSize"></div>
+
+						<div class="cartInDiv">
+							<div>
+								<h6 class="font fontSizeCart">price: 00,00€</h6>
+							</div>
+
+							<div><label for="input-qty" class=" font fontSizeCart">Quantity: </label> <input id="input-qty" type="number" min="1" step="1" class="inputQty font"><button type="button">+</button></div>
+
+							<div class="buttonRemove"><button type="reset">remove</button></div>
+
+
+						</div>
+
+					</div>
+
+				</div>
+				<div class="card ">
+					<div class="container-fluid">
+						<h6 class="font titleCartDiv fontSizeCart">wonder/wonder</h6>
+					</div>
+					<div class="cartDiv">
+						<div><img src="images/comics/wonder/wonder.jpg" alt="portada" class="imgCartSize"></div>
+
+						<div class="cartInDiv">
+							<div>
+								<h6 class="font fontSizeCart">price: 00,00€</h6>
+							</div>
+
+							<div><label for="input-qty" class=" font fontSizeCart">Quantity: </label> <input id="input-qty" type="number" min="1" step="1" class="inputQty font"><button type="button">+</button></div>
+
+							<div class="buttonRemove"><button type="reset">remove</button></div>
+
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="card container-fluid">
+
+
+					<div>
+						<h6 class="font fontSizeCart">Total Price:00,00€</h6>
+						<h6 class="font fontSizeCart">Discount applied:00,00€</h6>
+						<h6 class="font fontSizeCart">Final price to pay:00,00€</h6>
+					</div>
+
+
+					<div class="titleCartDiv">
+
+						<button type="button" class="buttonCheckOut font" data-toggle="modal" data-target="#exampleModalCenter">Check out</button></div>
+					<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLongTitle">Payment Page</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									<img src="images/takemymoney.jpg" alt="take my money" class="takeMyMoney">
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+
+
+		</div>
+		<footer class="footer">
+			<div>
+
+			</div>
+		</footer>
+	</div>
+	<!--bootstrap scripts-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<!------------vue--------->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<!--	------js----------------->
+	<script src="bookstore.js"></script>
+	<script src="main.js"></script>
+</body></html>
