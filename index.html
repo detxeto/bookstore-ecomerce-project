@@ -71,7 +71,7 @@
 				</a>
 
 				<div class="textShoIcon">
-					<h6 class="IconItem">0</h6>
+					<h6 class="IconItem">{{shoppingCart.length}}</h6>
 				</div>
 			</div>
 		</div>
@@ -210,7 +210,7 @@
 								<div class="innerInfo ">
 									<div>
 										<button v-on:click="detailBook=buk,makeActive('detailMain')" class="  font divButtons">detail</button></div>
-									<div><button class="font divButtons innerInfoButton" @click="makeActive('cartMain')">add to Cart</button></div>
+									<div><button class="font divButtons innerInfoButton" @click="addToCart(buk)">add to Cart</button></div>
 								</div>
 							</div>
 						</div>
@@ -292,7 +292,7 @@
 								<div class="innerInfo">
 									<div>
 										<button v-on:click="detailBook=com,makeActive('detailMain')" class="  font divButtons">detail</button></div>
-									<div><button class="font divButtons innerInfoButton" @click="makeActive('cartMain')">add to Cart</button></div>
+									<div><button class="font divButtons innerInfoButton" @click="addToCart(com)">add to Cart</button></div>
 								</div>
 							</div>
 						</div>
@@ -336,7 +336,7 @@
 									<h5 class="fontSize">{{detailBook.valoracion}}</h5>
 								</div>
 							</div>
-							<button class="font" @click="makeActive('cartMain')">add to Cart</button>
+							<button class="font" @click="addToCart(detailBook)">add to Cart</button>
 
 						</div>
 
@@ -359,23 +359,23 @@
 					</div>
 
 					<div class="container details">
-						<h3 >Details:</h3>
-						<h5 >Title: </h5>
-						<h5 class="underLineOn" > {{detailBook.titulo}}</h5>
+						<h3>Details:</h3>
+						<h5>Title: </h5>
+						<h5 class="underLineOn"> {{detailBook.titulo}}</h5>
 						<h5>Author:</h5>
-						<h5 class="underLineOn" > {{detailBook.autor}}</h5>
+						<h5 class="underLineOn"> {{detailBook.autor}}</h5>
 						<h5>Editorial:</h5>
-						<h5 class="underLineOn" >{{detailBook.editorial}}</h5>
+						<h5 class="underLineOn">{{detailBook.editorial}}</h5>
 						<h5>Genre:</h5>
 						<h5 class="underLineOn">{{detailBook.genero}}</h5>
 						<h5>Language:</h5>
 						<h5 class="underLineOn">{{detailBook.lenguaje}}</h5>
 						<h5>Publication date:</h5>
-						<h5 class="underLineOn" >{{detailBook.fecha}}</h5>
+						<h5 class="underLineOn">{{detailBook.fecha}}</h5>
 						<h5>Publication city:</h5>
 						<h5 class="underLineOn">{{detailBook.ciudad}}</h5>
 						<h5>Measurements:</h5>
-						<h5 class="underLineOn" >{{detailBook.dimensiones}}</h5>
+						<h5 class="underLineOn">{{detailBook.dimensiones}}</h5>
 						<h5>Pages:</h5>
 						<h5 class="underLineOn">{{detailBook.paginas}}</h5>
 
@@ -410,58 +410,46 @@
 					<button class=" font " @click="makeActive('allComicMain')">Back to Comics</button>
 				</div>
 
-				<div class="card ">
-					<div class="container-fluid">
-						<h6 class="font titleCartDiv fontSizeCart">wolverine/dead-end</h6>
-					</div>
-					<div class="cartDiv">
-						<div><img src="images/comics/wolverine/dead-end.jpg" alt="portada" class="imgCartSize"></div>
+				<div>
+					<div v-for="(x,index) in shoppingCart" class="card ">
+						<div class="container-fluid">
+							<h6 class="font titleCartDiv fontSizeCart">{{x.titulo}}</h6>
+						</div>
+						<div class="cartDiv">
+							<div><img :src="x.portada" alt="portada" class="imgCartSize"></div>
 
-						<div class="cartInDiv">
-							<div>
-								<h6 class="font fontSizeCart">price: 00,00€</h6>
+							<div class="cartInDiv">
+								<div>
+									<h6 class="font fontSizeCart">Price: {{x.precio}}</h6>
+								</div>
+
+								<div><label class=" font fontSizeCart">Quantity: </label>
+									<!--							{{counter}}  <button @click="counter+= 1"type="button" class="font">+</button><button @click="counter-= 1"type="number" min=1 class="font" >-</button>-->
+									<input v-model="x.qty" type="number" min=1 class="inputQty ">
+								</div>
+
+								<div class="buttonRemove"><button @click="removeItem(index)" type="reset">remove</button></div>
+
+
 							</div>
 
-							<div><label for="input-qty" class=" font fontSizeCart">Quantity: </label> <input id="input-qty" type="number" min="1" step="1" class="inputQty font"><button type="button">+</button></div>
-
-							<div class="buttonRemove"><button type="reset">remove</button></div>
-
-
 						</div>
-
 					</div>
 
+					<div v-if="shoppingCart.length === 0">
+						<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg"> <p class="font deadText">Nothing on the Basket</p>
+					</div>
 				</div>
-				<div class="card ">
-					<div class="container-fluid">
-						<h6 class="font titleCartDiv fontSizeCart">wonder/wonder</h6>
-					</div>
-					<div class="cartDiv">
-						<div><img src="images/comics/wonder/wonder.jpg" alt="portada" class="imgCartSize"></div>
 
-						<div class="cartInDiv">
-							<div>
-								<h6 class="font fontSizeCart">price: 00,00€</h6>
-							</div>
-
-							<div><label for="input-qty" class=" font fontSizeCart">Quantity: </label> <input id="input-qty" type="number" min="1" step="1" class="inputQty font"><button type="button">+</button></div>
-
-							<div class="buttonRemove"><button type="reset">remove</button></div>
-
-
-						</div>
-
-					</div>
-
-				</div>
 
 				<div class="card container-fluid">
 
 
-					<div>
-						<h6 class="font fontSizeCart">Total Price:00,00€</h6>
-						<h6 class="font fontSizeCart">Discount applied:00,00€</h6>
-						<h6 class="font fontSizeCart">Final price to pay:00,00€</h6>
+					<div v-show="shoppingCart.length>0">
+						<h6 class="font fontSizeCart" v-show="shoppingCart.length<5">Total Price:{{totalPrice}}€</h6>
+						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5">Total Price:{{priceNoDisc}}€</h6>
+						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5">Discount applied:{{(totalPrice*0.1).toPrecision(4)}}€</h6>
+						<h6 class="font fontSizeCart">Final price to pay:{{totalPrice}}€</h6>
 					</div>
 
 
@@ -510,4 +498,6 @@
 	<!--	------js----------------->
 	<script src="bookstore.js"></script>
 	<script src="main.js"></script>
-</body></html>
+</body>
+
+</html>

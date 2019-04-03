@@ -1,12 +1,14 @@
-.h{
-	width: 50%;
-	height: 50%;
+
+.container{
+  padding:20px;
+  max-width:600px;
 }
-.m{
-	width: 150px;
-	height:100px;
+
+.input-qty {
+  width: 60px;
+  float: right
 }
-.n{
-	margin-left: 50px;
-	
+
+.table-cart > tr > td {
+  vertical-align: middle !important;
 }
