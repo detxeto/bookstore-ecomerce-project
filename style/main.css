@@ -259,7 +259,16 @@
 	flex-flow: column;
 	justify-content: space-between;
 }
-
+.searchNoMatch{
+	background-color: black;
+	
+}
+.deadTextBook{
+	font-size: 4vh;
+	color:whitesmoke;
+	display: flex;
+	justify-content: center;
+}
 /*flip-----------*/
 
 .flip-box {

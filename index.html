@@ -163,24 +163,25 @@
 			<div class="booksMain">
 				<div class="filterBar container-fluid ">
 
-					<div><input type="text" placeholder="search.." class="inputSearch" v-model="bookSearch"></div>
-					<div class="dropdown ">
-						<button class="btn filterButton dropdown-toggle font" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Filter by:
-						</button>
-						<div class="dropdown-menu downMenuFilter " aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item font " href="#">Essay</a>
-							<a class="dropdown-item font " href="#">Novel</a>
-							<a class="dropdown-item font " href="#">Sci-Fi</a><a class="dropdown-item font " href="#">Self Help</a>
-						</div>
+					<div ><input type="text" placeholder="search.." class="inputSearch" v-model="bookSearch"></div>
+					
+					<div  >
+						<select v-model="kindBooks">
+							<option value>Filter By:</option>
+							<option value="Ensayo" >Essay</option>
+							<option value="Novela">Novel</option>
+							<option value="Ciencia ficción">Sci-Fi</option>
+							<option value="Autoayuda">Self Help</option>
+						</select>
 					</div>
 					<div>
-						<div class="btn-group" role="group" aria-label="Basic example">
-							<button type="button" class="btn filterButton font">En</button>
-							<button type="button" class="btn filterButton font">Es</button>
-
-						</div>
+						<select v-model="idiomBooks">
+							<option value>Idiom:</option>
+							<option value="en">English</option>
+							<option value="es">Spanish</option>
+						</select>
 					</div>
+
 				</div>
 				<div class="  container divSizeFlip" v-for="buk in nameFilter">
 					<div class="imgBook flip-box container">
@@ -218,7 +219,9 @@
 				</div>
 			</div>
 		</div>
-
+<div class="card searchNoMatch" v-if="bookSearch!== book.titulo && bookSearch.length>1" >
+						<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg"> <p class="font deadTextBook">No matches found, please try again</p>
+					</div>
 		<!----------------comicMain--------------->
 
 		<div class="allComicMain" v-show="active==='allComicMain'">
@@ -227,7 +230,44 @@
 
 				<div class="filterBar container-fluid ">
 
-					<div><input type="text" placeholder="search.." class="inputSearch" v-model="bookSearch"></div>
+					<div><input type="text" placeholder="search.." class="inputSearch" v-model="comicSearch"></div>
+					
+					<div  >
+						<select v-model="kindComic">
+							<option value>Filter By:</option>
+							<option value="Comic" >Comic</option>
+							<option value="Novela Grafica">Grafic Novel</option>
+							
+						</select>
+					</div>
+					<div>
+						<select v-model="edComic">
+							<option value>Ed:</option>
+							<option value="DC">DC</option>
+							<option value="Marvel">Marvel</option>
+						</select>
+					</div>
+					<div>
+						<select v-model="idiomComic">
+							<option value>Idiom:</option>
+							<option value="en">English</option>
+							<option value="es">Spanish</option>
+						</select>
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+<!--
 					<div class="dropdown">
 						<button class="btn filterButton font dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Filter by:
@@ -238,6 +278,8 @@
 
 						</div>
 					</div>
+-->
+<!--
 					<div>
 						<div class="dropdown">
 							<button class="btn filterButton font dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -250,6 +292,8 @@
 							</div>
 						</div>
 					</div>
+-->
+<!--
 					<div>
 						<div class="dropdown">
 							<button class="btn font filterButton dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -262,6 +306,7 @@
 							</div>
 						</div>
 					</div>
+-->
 				</div>
 
 				<div class="  container divSizeFlip" v-for="com in comicFilter">
@@ -309,7 +354,9 @@
 
 
 		</div>
-
+<div class="card searchNoMatch" v-if="comicSearch!== comic.titulo && comicSearch.length>1" >
+						<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg"> <p class="font deadTextBook">No matches found, please try again</p>
+					</div>
 		<!--------------------detailMain------------>
 
 		<div class="detailMain" v-show="active==='detailMain'">
@@ -448,7 +495,7 @@
 					<div v-show="shoppingCart.length>0">
 						<h6 class="font fontSizeCart" v-show="shoppingCart.length<5">Total Price:{{totalPrice}}€</h6>
 						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5">Total Price:{{priceNoDisc}}€</h6>
-						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5">Discount applied:{{(totalPrice*0.1).toPrecision(4)}}€</h6>
+						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5">Discount applied:{{(totalPrice*0.111).toPrecision(4)}}€</h6>
 						<h6 class="font fontSizeCart">Final price to pay:{{totalPrice}}€</h6>
 					</div>
 

@@ -44,7 +44,8 @@ const vm = new Vue({
 	
   data: {
     cartItems: [],
-    items : products
+    items : products,
+	  
   },
 	
   methods: {
@@ -66,5 +67,31 @@ const vm = new Vue({
 			
 			itemToAdd.qty = 1;
     }
-  }
+  },
+	computed:{
+		x:function(){
+		var unique=[];
+			for (var i =0;i<this.shoppingCart.length;i++){
+				if(!unique.hasOwnProperty(this.shoppingCart[i].titulo)){
+					unique.push(this.shoppingCart[i].titulo);
+				};
+				for (var j=0;j<this.unique.length;j++){
+					var count=this.shoppingCart.qty;}
+					for (var k=0;k<this.shoppingCart.length;k++){
+						if(this.unique[j]==this.shoppingCart[k].titulo){
+							 this.count++ ;}
+							if( this.count === 4){
+								freeitem.push(this.shoppingCart[k]);
+								finalPrice-=this.shoppingCart[k].precio;
+								this.count=0
+							}
+						
+					}
+				
+			}
+			
+			return finalPrice.toFixed(2);
+		}
+		},
+	}
 })
