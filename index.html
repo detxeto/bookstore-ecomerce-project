@@ -66,7 +66,7 @@
 
 
 			<div>
-				<a href="#" @click="makeActive('cartMain')">
+				<a href="#" @click="makeActive('cartMain'),resetInput('bookSearch','comicSearch')">
 					<div class="cartLogo"></div>
 				</a>
 
@@ -163,19 +163,20 @@
 			<div class="booksMain">
 				<div class="filterBar container-fluid ">
 
-					<div ><input type="text" placeholder="search.." class="inputSearch" v-model="bookSearch"></div>
-					
-					<div  >
-						<select v-model="kindBooks">
-							<option value>Filter By:</option>
-							<option value="Ensayo" >Essay</option>
+					<div><input id="sr" type="text" placeholder="search.." class="inputSearch" v-model="bookSearch"></div>
+					<button type="reset" id="sr" class="resetButton" @click="resetInput('bookSearch')"></button>
+
+					<div>
+						<select v-model="kindBooks" class="selectBox font">
+							<option value >Filter By:</option>
+							<option value="Ensayo">Essay</option>
 							<option value="Novela">Novel</option>
 							<option value="Ciencia ficción">Sci-Fi</option>
 							<option value="Autoayuda">Self Help</option>
 						</select>
 					</div>
 					<div>
-						<select v-model="idiomBooks">
+						<select v-model="idiomBooks" class="selectBox font">
 							<option value>Idiom:</option>
 							<option value="en">English</option>
 							<option value="es">Spanish</option>
@@ -219,9 +220,10 @@
 				</div>
 			</div>
 		</div>
-<div class="card searchNoMatch" v-if="bookSearch!== book.titulo && bookSearch.length>1" >
-						<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg"> <p class="font deadTextBook">No matches found, please try again</p>
-					</div>
+		<div class="card searchNoMatch" v-if="bookSearch!== book.titulo && bookSearch.length>1">
+			<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg">
+			<p class="font deadTextBook">No matches found, please try again</p>
+		</div>
 		<!----------------comicMain--------------->
 
 		<div class="allComicMain" v-show="active==='allComicMain'">
@@ -230,83 +232,42 @@
 
 				<div class="filterBar container-fluid ">
 
-					<div><input type="text" placeholder="search.." class="inputSearch" v-model="comicSearch"></div>
-					
-					<div  >
-						<select v-model="kindComic">
+					<div><input id="rs" type="text" placeholder="search.." class="inputSearch" v-model="comicSearch"></div>
+					<button type="reset" id="rs" class="resetButton" @click="resetInput('comicSearch')"></button>
+
+					<div>
+						<select v-model="kindComic" class="optionThinBox font">
 							<option value>Filter By:</option>
-							<option value="Comic" >Comic</option>
+							<option value="Comic">Comic</option>
 							<option value="Novela Grafica">Grafic Novel</option>
-							
+
 						</select>
 					</div>
 					<div>
-						<select v-model="edComic">
+						<select v-model="edComic" class="optionBox font" >
 							<option value>Ed:</option>
 							<option value="DC">DC</option>
 							<option value="Marvel">Marvel</option>
 						</select>
 					</div>
 					<div>
-						<select v-model="idiomComic">
+						<select v-model="idiomComic"class="optionBox font" >
 							<option value>Idiom:</option>
 							<option value="en">English</option>
 							<option value="es">Spanish</option>
 						</select>
 					</div>
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-<!--
-					<div class="dropdown">
-						<button class="btn filterButton font dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Filter by:
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item font" href="#">Comic</a>
-							<a class="dropdown-item font" href="#">Grafic Novel</a>
 
-						</div>
-					</div>
--->
-<!--
-					<div>
-						<div class="dropdown">
-							<button class="btn filterButton font dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								ed:
-							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item font" href="#">Dc</a>
-								<a class="dropdown-item font" href="#">Marvel</a>
 
-							</div>
-						</div>
-					</div>
--->
-<!--
-					<div>
-						<div class="dropdown">
-							<button class="btn font filterButton dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								id:
-							</button>
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item  font" href="#">En</a>
-								<a class="dropdown-item  font" href="#">Es</a>
 
-							</div>
-						</div>
-					</div>
--->
+
+
+
+
+
+
+
+			
 				</div>
 
 				<div class="  container divSizeFlip" v-for="com in comicFilter">
@@ -354,9 +315,10 @@
 
 
 		</div>
-<div class="card searchNoMatch" v-if="comicSearch!== comic.titulo && comicSearch.length>1" >
-						<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg"> <p class="font deadTextBook">No matches found, please try again</p>
-					</div>
+		<div class="card searchNoMatch" v-if="comicSearch!== comic.titulo && comicSearch.length>1">
+			<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg">
+			<p class="font deadTextBook">No matches found, please try again</p>
+		</div>
 		<!--------------------detailMain------------>
 
 		<div class="detailMain" v-show="active==='detailMain'">
@@ -471,7 +433,7 @@
 								</div>
 
 								<div><label class=" font fontSizeCart">Quantity: </label>
-									<!--							{{counter}}  <button @click="counter+= 1"type="button" class="font">+</button><button @click="counter-= 1"type="number" min=1 class="font" >-</button>-->
+									
 									<input v-model="x.qty" type="number" min=1 class="inputQty ">
 								</div>
 
@@ -484,7 +446,8 @@
 					</div>
 
 					<div v-if="shoppingCart.length === 0">
-						<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg"> <p class="font deadText">Nothing on the Basket</p>
+						<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg">
+						<p class="font deadText">Nothing on the Basket</p>
 					</div>
 				</div>
 
@@ -494,21 +457,26 @@
 
 					<div v-show="shoppingCart.length>0">
 						<h6 class="font fontSizeCart" v-show="shoppingCart.length<5">Total Price:{{totalPrice}}€</h6>
-						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5">Total Price:{{priceNoDisc}}€</h6>
-						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5">Discount applied:{{(totalPrice*0.111).toPrecision(4)}}€</h6>
-						<h6 class="font fontSizeCart">Final price to pay:{{totalPrice}}€</h6>
+						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5">otal Price:{{priceNoDisc}}€</h6>
+						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5 ">Discount applied:{{(totalPrice*0.111).toPrecision(4)}}€</h6>
+<!--
+						<h6 class="font fontSizeCart" v-if="freeItem>1
+						 ">Discount appy:{{}}€</h6>
+-->
+						<h6 class="font fontSizeCart"  v-show="shoppingCart.length<5">Final price to pay:{{totalPrice}}€</h6>
+						<h6 class="font fontSizeCart"  v-show="shoppingCart.length>=5">inal price to pay:{{(totalPrice)}}€</h6>
 					</div>
 
 
 					<div class="titleCartDiv">
 
-						<button type="button" class="buttonCheckOut font" data-toggle="modal" data-target="#exampleModalCenter">Check out</button></div>
+						<button type="button" class="buttonCheckOut font" data-toggle="modal" data-target="#exampleModalCenter" >Check out</button></div>
 					<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
 									<h5 class="modal-title" id="exampleModalLongTitle">Payment Page</h5>
-									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="resetCart">
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
@@ -545,6 +513,4 @@
 	<!--	------js----------------->
 	<script src="bookstore.js"></script>
 	<script src="main.js"></script>
-</body>
-
-</html>
+</body></html>

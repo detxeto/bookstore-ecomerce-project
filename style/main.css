@@ -179,6 +179,24 @@
 
 
 }
+.resetButton{
+	background-image: url(../images/baseline_refresh_black_18dp.png);
+	background-size: cover;
+	height: 5vh;
+	width: 6vh;
+}
+
+.selectBox{
+	height: 5vh;
+}
+.optionBox{
+	width: 9vh;
+	height: 5vh;
+}
+.optionThinBox{
+	width: 12vh;
+	height: 5vh;
+}
 
 .downMenuFilter {
 	width: 27vh;

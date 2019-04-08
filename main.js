@@ -18,8 +18,10 @@ var app = new Vue({
 		kindComic: "",
 		idiomComic: "",
 		edComic: "",
-		unique:[],
-		freeItem:[],
+
+		freeItem: [],
+		arrodonir: 0,
+		val: "",
 
 
 
@@ -51,6 +53,19 @@ var app = new Vue({
 		removeItem(index) {
 			this.shoppingCart.splice(index, 1);
 		},
+		resetInput: function () {
+
+			this.bookSearch = "";
+			this.comicSearch = "";
+
+
+		},
+		resetCart: function () {
+
+
+			this.shoppingCart = [];
+		},
+
 
 
 
@@ -102,62 +117,62 @@ var app = new Vue({
 		},
 
 
-		
+
+
+
 
 
 
 		totalPrice: function () {
 			var total = 0;
-			var finalPrice = 0;
 			var discount = 0;
-			
+			var fPrice = 0;
+			var freeItem = [];
+			var totalFreeItem = 0;
+			var dPrice = 0;
+
+
+
 			this.shoppingCart.forEach(item => {
 				total += (item.precio * item.qty);
 
-				finalPrice = total;
+
+				//				finalPrice = total;
+
+				if (item.qty % 4 === 0) {
+					//					var arrodonir = ((item.qty / 4) * 3)
+					//					Total = Math.floor((arrodonir) * item.precio);
+					totalFreeItem = Math.floor(item.qty / 4 >= 1);
+					dPrice = totalFreeItem * item.precio;
+					this.freeItem.push(item);
+					total -= dPrice;
+
+				}
 			});
-//every 5 items get 10% discount//
+
+			//every 5 items get 10% discount//
 			if (this.shoppingCart.length >= 5) {
-				let discount = finalPrice * 0.1;
-
-				finalPrice = finalPrice - discount;
-				finalPrice = finalPrice.toFixed(2);
-
+				total = total * 0.9;
+				//					let discount = finalPrice * 0.1;
+				//					finalPrice = finalPrice - discount;
+				//				total = total.toString();
 			}
-////every 4 item same kind of, get one for free//
-//			var unique=[];
-//			for (var i =0;i<this.shoppingCart.length;i++){
-//				if(!unique.hasOwnProperty(this.shoppingCart[i].titulo)){
-//					unique.push(this.shoppingCart[i].titulo);
-//				};
-//				for (var j=0;j<this.unique.length;j++){
-//					var count=0;}
-//					for (var k=0;k<this.shoppingCart.length;k++){
-//						if(this.unique[j]==this.shoppingCart[k].titulo){
-//							 this.count++ ;}
-//							if( this.count == 4){
-//								freeitem.push(this.shoppingCart[k]);
-//								finalPrice-=this.shoppingCart[k].precio;
-//								this.count=0
-//							}
-//						
-//					}
-//				
-//			}
-			
-			return finalPrice;
+
+
+			return total.toFixed(2)
 		},
 
 		priceNoDisc: function () {
-			let total = 0;
+			let tot = 0;
 			let fTotal = 0;
 			this.shoppingCart.forEach(item => {
-				total += (item.precio * item.qty);
+				tot += (item.precio * item.qty);
 
-				fTotal = total.toFixed(2);
+				fTotal = tot.toFixed(2);
 			});
 			return fTotal;
 		},
+
 
 	},
 
@@ -183,3 +198,23 @@ var app = new Vue({
 //			itemToAdd.qty = 1;
 //    }
 //  
+////every 4 item same kind of, get one for free//
+//			var unique=[];
+//			for (var i =0;i<this.shoppingCart.length;i++){
+//				if(!unique.hasOwnProperty(this.shoppingCart[i].titulo)){
+//					unique.push(this.shoppingCart[i].titulo);
+//				};
+//				for (var j=0;j<this.unique.length;j++){
+//					var count=0;}
+//					for (var k=0;k<this.shoppingCart.length;k++){
+//						if(this.unique[j]==this.shoppingCart[k].titulo){
+//							 this.count++ ;}
+//							if( this.count == 4){
+//								freeitem.push(this.shoppingCart[k]);
+//								finalPrice-=this.shoppingCart[k].precio;
+//								this.count=0
+//							}
+//						
+//					}
+//				
+//			}
