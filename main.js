@@ -18,10 +18,10 @@ var app = new Vue({
 		kindComic: "",
 		idiomComic: "",
 		edComic: "",
-
+			 
 		freeItem: [],
-		arrodonir: 0,
-		val: "",
+		
+		
 
 
 
@@ -139,10 +139,11 @@ var app = new Vue({
 
 				//				finalPrice = total;
 
-				if (item.qty % 4 === 0) {
+				if (item.qty / 4 >= 1) {
+
 					//					var arrodonir = ((item.qty / 4) * 3)
 					//					Total = Math.floor((arrodonir) * item.precio);
-					totalFreeItem = Math.floor(item.qty / 4 >= 1);
+					totalFreeItem = Math.floor(item.qty / 4);
 					dPrice = totalFreeItem * item.precio;
 					this.freeItem.push(item);
 					total -= dPrice;
@@ -173,11 +174,20 @@ var app = new Vue({
 			return fTotal;
 		},
 
+		
 
-	},
+		
+		
+		
+		
+		
+		},
+	
 
 
 })
+
+
 
 //addToCart(itemToAdd) {
 //      var found = false;

@@ -168,7 +168,7 @@
 
 					<div>
 						<select v-model="kindBooks" class="selectBox font">
-							<option value >Filter By:</option>
+							<option value>Filter By:</option>
 							<option value="Ensayo">Essay</option>
 							<option value="Novela">Novel</option>
 							<option value="Ciencia ficción">Sci-Fi</option>
@@ -212,12 +212,33 @@
 								<div class="innerInfo ">
 									<div>
 										<button v-on:click="detailBook=buk,makeActive('detailMain')" class="  font divButtons">detail</button></div>
-									<div><button class="font divButtons innerInfoButton" @click="addToCart(buk)">add to Cart</button></div>
+									<div><button class="font divButtons innerInfoButton" @click="addToCart(buk)"data-toggle="modal" data-target="#ModalCenter3">add to Cart</button></div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<div class="modal fade" id="ModalCenter3" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle3" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header ">
+											<h2 class="modal-title font" id="ModalLongTitle3">Dear...I think it's time to let you know...</h2>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body font inImg">
+											<div class="modalText"><h3> Item it's been added to the cart</h3>
+											<h4>Special offer:</h4>
+											<h5>If you buy 5 or more items you'll get 10% discount.</h5>
+											<h5>If you buy 4 items same kind of you'll get one for  FREE!!</h5></div>
+											<div ><img  class="deadpoolModalImg" src="images/Deadpool_modal7.jpg" alt="deadpool"></div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+				
 			</div>
 		</div>
 		<div class="card searchNoMatch" v-if="bookSearch!== book.titulo && bookSearch.length>1">
@@ -244,14 +265,14 @@
 						</select>
 					</div>
 					<div>
-						<select v-model="edComic" class="optionBox font" >
+						<select v-model="edComic" class="optionBox font">
 							<option value>Ed:</option>
 							<option value="DC">DC</option>
 							<option value="Marvel">Marvel</option>
 						</select>
 					</div>
 					<div>
-						<select v-model="idiomComic"class="optionBox font" >
+						<select v-model="idiomComic" class="optionBox font">
 							<option value>Idiom:</option>
 							<option value="en">English</option>
 							<option value="es">Spanish</option>
@@ -267,7 +288,6 @@
 
 
 
-			
 				</div>
 
 				<div class="  container divSizeFlip" v-for="com in comicFilter">
@@ -298,7 +318,9 @@
 								<div class="innerInfo">
 									<div>
 										<button v-on:click="detailBook=com,makeActive('detailMain')" class="  font divButtons">detail</button></div>
-									<div><button class="font divButtons innerInfoButton" @click="addToCart(com)">add to Cart</button></div>
+									<div><button class="font divButtons innerInfoButton" @click="addToCart(com)"data-toggle="modal" data-target="#ModalCenter2">add to Cart</button>
+									
+									</div>
 								</div>
 							</div>
 						</div>
@@ -306,7 +328,26 @@
 
 				</div>
 
+<div class="modal fade" id="ModalCenter2" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle2" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header ">
+											<h2 class="modal-title font" id="ModalLongTitle2">So...As I was Saying...</h2>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body font inImg">
+											<div class="modalText"><h3> Item it's been added to the cart</h3>
+											<h4>Special offer:</h4>
+											<h5>If you buy 5 or more items you'll get 10% discount.</h5>
+											<h5>If you buy 4 items same kind of you'll get one for  FREE!!</h5></div>
+											<div ><img  class="deadpoolModalImg" src="images/deadpool_modal8.jpg" alt="deadpool"></div>
+										</div>
 
+									</div>
+								</div>
+							</div>
 
 
 			</div>
@@ -345,8 +386,27 @@
 									<h5 class="fontSize">{{detailBook.valoracion}}</h5>
 								</div>
 							</div>
-							<button class="font" @click="addToCart(detailBook)">add to Cart</button>
+							<button class="font" @click="addToCart(detailBook)" data-toggle="modal" data-target="#ModalCenter">add to Cart</button>
+							<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<div class="modal-header ">
+											<h5 class="modal-title font" id="ModalLongTitle">Hey! Let me tell you something...</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body font inImg">
+											<div class="modalText"><h3> Item it's been added to the cart</h3>
+											<h4>Special offer:</h4>
+											<h5>If you buy 5 or more items you'll get 10% discount.</h5>
+											<h5>If you buy 4 items same kind of you'll get one for  FREE!!</h5></div>
+											<div ><img  class="deadpoolModalImg" src="images/deadpool_modal9.jpg" alt="deadpool"></div>
+										</div>
 
+									</div>
+								</div>
+							</div>
 						</div>
 
 					</div>
@@ -429,11 +489,11 @@
 
 							<div class="cartInDiv">
 								<div>
-									<h6 class="font fontSizeCart">Price: {{x.precio}}</h6>
+									<h6 class="font fontSizeCart">Price: {{x.precio}}€</h6>
 								</div>
 
 								<div><label class=" font fontSizeCart">Quantity: </label>
-									
+
 									<input v-model="x.qty" type="number" min=1 class="inputQty ">
 								</div>
 
@@ -455,27 +515,40 @@
 				<div class="card container-fluid">
 
 
-					<div v-show="shoppingCart.length>0">
-						<h6 class="font fontSizeCart" v-show="shoppingCart.length<5">Total Price:{{totalPrice}}€</h6>
-						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5">otal Price:{{priceNoDisc}}€</h6>
-						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5 ">Discount applied:{{(totalPrice*0.111).toPrecision(4)}}€</h6>
-<!--
-						<h6 class="font fontSizeCart" v-if="freeItem>1
-						 ">Discount appy:{{}}€</h6>
+					<div v-if="shoppingCart.length>0">
+						<h6 class="font fontSizeCart">Total Price:{{priceNoDisc}}€</h6>
+						<!--5o+ items en cart-->
+						<h6 class="font fontSizeCart" v-if="shoppingCart.length>=5 && freeItem.length==0 ">Discount 10% off:{{-(totalPrice*0.111).toPrecision(4)}}€</h6>
+						<h6 class="font fontSizeCart" v-show="shoppingCart.length>=5 && freeItem.length==0">Final price to pay:{{(totalPrice)}}€</h6>
+
+						<!--			para free item			-->
+
+						<h6 class="font fontSizeCart" v-if="freeItem.length>=1
+						 ">Discount applied:{{(priceNoDisc-totalPrice).toFixed(2)}}€</h6>
+						<!--
+						 <h6 class="font fontSizeCart" v-if="freeItem.length>=1
+						 ">Final price to pay:{{(totalPrice)}}€</h6>
 -->
-						<h6 class="font fontSizeCart"  v-show="shoppingCart.length<5">Final price to pay:{{totalPrice}}€</h6>
-						<h6 class="font fontSizeCart"  v-show="shoppingCart.length>=5">inal price to pay:{{(totalPrice)}}€</h6>
+
+						<!--						para free item+ descuento10%-->
+
+
+
+						<h6 class="font fontSizeCart" v-if="shoppingCart.length>=5 && freeItem.length>=1">Final price to pay:{{totalPrice}}€</h6>
+						<!--						<h6 class="font fontSizeCart"  v-if="shoppingCart.length>=5 && freeItem.length>=1">Discount Applied:{{}}€</h6>-->
+						<h6 class="font fontSizeCart" v-if="shoppingCart.length<5">Final price to pay:{{totalPrice}}€</h6>
+
 					</div>
 
 
 					<div class="titleCartDiv">
 
-						<button type="button" class="buttonCheckOut font" data-toggle="modal" data-target="#exampleModalCenter" >Check out</button></div>
+						<button type="button" class="buttonCheckOut font" data-toggle="modal" data-target="#exampleModalCenter">Check out</button></div>
 					<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLongTitle">Payment Page</h5>
+									<h5 class="modal-title font" id="exampleModalLongTitle">Payment Page</h5>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="resetCart">
 										<span aria-hidden="true">&times;</span>
 									</button>
@@ -499,7 +572,7 @@
 		</div>
 		<footer class="footer">
 			<div>
-
+<h4 class="font textFooter">"With great power comes great responsibility"</h4>
 			</div>
 		</footer>
 	</div>
@@ -513,4 +586,6 @@
 	<!--	------js----------------->
 	<script src="bookstore.js"></script>
 	<script src="main.js"></script>
-</body></html>
+</body>
+
+</html>
