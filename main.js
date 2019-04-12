@@ -1,11 +1,43 @@
+//https://api.myjson.com/bins/106qfo//
+
+//ew Vue({
+//  el: '#app',
+//  data () {
+//    return {
+//      info: null
+//    }
+//  },
+//  mounted () {
+//    axios
+//      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+//      .then(response => (this.info = response))
+//  }
+//})
+
+
+fetch('https://api.myjson.com/bins/106qfo')
+	.then(function (response) {
+		return response.json(); // As a function call
+	})
+	.then(function (myJson) {
+		let book = myJson.books;
+		let comic = myJson.comics;
+		app.book = myJson.books;
+		app.comic = myJson.comics;
+	});
+
+
+
+
+
 var app = new Vue({
 
 	el: '#app',
 	data: {
 
 		active: 'indexMain',
-		book: data.books,
-		comic: data.comics,
+		book: [],
+		comic: [],
 		bookSearch: "",
 		comicSearch: "",
 		detailBook: {},
@@ -18,14 +50,14 @@ var app = new Vue({
 		kindComic: "",
 		idiomComic: "",
 		edComic: "",
-			 
 		freeItem: [],
-		
-		
+
+
 
 
 
 	},
+
 
 	methods: {
 		//per mostrar el div designat//
@@ -57,16 +89,23 @@ var app = new Vue({
 
 			this.bookSearch = "";
 			this.comicSearch = "";
-
+			this.kindComic = "";
+			this.idiomComic = "";
+			this.edComic = "";
+			this.kindBooks = "";
+			this.idiomBooks = "";
 
 		},
 		resetCart: function () {
 
 
 			this.shoppingCart = [];
+			this.freeItem = [];
 		},
 
-
+		scrollToTop() {
+			window.scrollTo(0, 0);
+		},
 
 
 	},
@@ -174,15 +213,15 @@ var app = new Vue({
 			return fTotal;
 		},
 
-		
 
-		
-		
-		
-		
-		
-		},
-	
+
+
+
+
+
+
+	},
+
 
 
 })

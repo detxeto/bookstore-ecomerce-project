@@ -9,6 +9,11 @@
 	color: white;
 	font-family: 'Germania One', cursive;
 
+}.navVar2 {
+	
+	color: black;
+	font-family: 'Germania One', cursive;
+
 }
 
 
@@ -29,7 +34,8 @@
 }
 
 .navBar {
-	background-color: black;
+	background-image: url(../images/rayo.jpg);
+	background-size: cover;
 
 	width: 18vh;
 	color: white;
@@ -41,7 +47,7 @@
 	width: 35vh;
 	height: 11vh;
 
-	background-image: url(../images/bookisthorBlack.png);
+	background-image: url(../images/bookisthorBlack2.png);
 	background-size: cover;
 }
 
@@ -63,7 +69,7 @@
 
 .shopIcon {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-around;
 	vertical-align: top;
 	height: 7vh;
 	border-bottom: solid;
@@ -96,7 +102,7 @@
 .IconItem {
 	font-size: 4vh;
 	height: 5vh;
-	width: 8vh;
+	width: 4vh;
 	margin-top: 1vh;
 	color: white;
 }
@@ -110,14 +116,78 @@
 	padding-top: 1vh;
 }
 
-.footer {
-	height: 10vh;
-	background-color: black;
-	border-top: solid;
-	border-top-color: white;
+/*scroll text---*/
+.scrollText {
+	height: 6vh;
+	overflow: hidden;
+	position: relative;
+	width: 60%;
+	display: flex;
+	justify-content: flex-start;
+
+
 }
 
+.scrollText h3 {
 
+	font-family: 'Germania One', cursive;
+	font-size: 4vh;
+	color: whitesmoke;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	line-height: 100%;
+	margin-top: 1vh;
+	text-align: center;
+	/* Starting position */
+	-moz-transform: translateX(100%);
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+	/* Apply animation to this element */
+	-moz-animation: scrollText 15s linear infinite;
+	-webkit-animation: scrollText 15s linear infinite;
+	animation: example1 15s linear infinite;
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes example1 {
+	0% {
+		-moz-transform: translateX(100%);
+	}
+
+	100% {
+		-moz-transform: translateX(-100%);
+	}
+}
+
+@-webkit-keyframes example1 {
+	0% {
+		-webkit-transform: translateX(100%);
+	}
+
+	100% {
+		-webkit-transform: translateX(-100%);
+	}
+}
+
+@keyframes example1 {
+	0% {
+		-moz-transform: translateX(100%);
+		/* Firefox bug fix */
+		-webkit-transform: translateX(100%);
+		/* Firefox bug fix */
+		transform: translateX(100%);
+	}
+
+	100% {
+		-moz-transform: translateX(-100%);
+		/* Firefox bug fix */
+		-webkit-transform: translateX(-100%);
+		/* Firefox bug fix */
+		transform: translateX(-100%);
+	}
+}
 
 
 /*-------aboutMain--------*/
@@ -125,9 +195,10 @@
 	background-color: gainsboro;
 	height: 70%;
 	border-top: solid;
-	border-width: 0.5vh;
+	border-top-width: 0.5vh;
 	border-top-color: white;
 }
+
 
 .textUnderline {
 	border-bottom: solid;
@@ -137,11 +208,29 @@
 
 .marginTop {
 	margin-top: 2vh;
+	
+}
+
+.mapSize{
+	width: 100%;
+	height: 100%;
+}
+.textArea {
+	text-align: justify;
 }
 
 /*---booksMain---*/
 .booksMain {
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.9);
+	height: 70%;
+/*
+	border-top: solid;
+	border-width: 0.5vh;
+	border-top-color: white;
+*/
+
+}.comicMain {
+	background-color: rgba(0, 0, 0, 0.9);
 	height: 70%;
 	border-top: solid;
 	border-width: 0.5vh;
@@ -156,13 +245,39 @@
 	border-top: solid;
 	border-top-width: 0.5vh;
 	border-top-color: white;
+	background-image: url(../images/estrellas.jpg);
+	background-size: cover;
 
+}
+.divSizeFlipComic {
+	width: 100%;
+	height: 60vh;
+	padding-top: 3vh;
+	border-top: solid;
+	border-top-width: 0.5vh;
+	border-top-color: white;
+	background-image: url(../images/estrella.jpg);
+	background-size: cover;
+
+}
+
+.backColor{
+	background-color: darkred;
+	opacity: 0.9;
+	color:black;
+}
+.backColorBorder{
+	border:solid;
+	border-width: 0.5vh;
+	border-color:darkred;
+	opacity: 0.9;
 }
 
 .filterBar {
 	display: inline-flex;
 	height: 5vh;
 	width: 100%;
+	background-color: black;
 	/*	margin-left:1vh;*/
 
 }
@@ -177,6 +292,12 @@
 	height: 100%;
 	align-items: center;
 
+
+}
+.imgBookBack{
+	width: 100%;
+	height: 100%;
+	align-items: center;
 
 }
 
@@ -258,21 +379,30 @@
 
 }
 
-.innerInfoButton {
-	margin-left: 5vh
-}
+
 
 .backPosition {
 
 	display: flex;
 	flex-flow: column;
-	vertical-align: baseline;
+	justify-content: space-between;
+	
+}
+.edImg{
+	width: 12vh;
+	height: 10vh;
+}.edImgBook{
+	width: 10vh;
+	height: 10vh;
 }
 
 .divButtons {
 	margin-bottom: 1vh;
 	background-color: whitesmoke;
 
+}
+.innerInfoButton {
+	margin-left: 5vh
 }
 
 .orderContent {
@@ -291,6 +421,10 @@
 	color: whitesmoke;
 	display: flex;
 	justify-content: center;
+	text-align: center;
+}
+.titleColor{
+	color: whitesmoke;
 }
 
 
@@ -337,16 +471,25 @@
 
 /* Style the back side */
 .flip-box-back {
-	background-color: maroon;
-	color: white;
+/*	background-image: url(../images/rayo23_mini.jpg);*/
+	color: black;
+	transform: rotateY(180deg);
+}
+.flip-box-backBook {
+/*
+	background-image: url(../images/rayo22_mini.jpg);
+	
+*/
+	
+	color: black;
 	transform: rotateY(180deg);
 }
 
 /*detail-----------*/
 .imgSizeDetail {
-	
+
 	height: 35vh;
-/*	margin-right: 2vh;*/
+	/*	margin-right: 2vh;*/
 	margin-bottom: 2vh;
 }
 
@@ -363,6 +506,7 @@
 	border-color: whitesmoke;
 	color: whitesmoke;
 	font-family: 'Germania One', cursive;
+	font-size:3vh;
 
 }
 
@@ -386,16 +530,17 @@
 	flex-flow: column;
 	justify-content: space-between;
 	align-items: center;
-	
+
 	margin-left: 5vh;
 }
+
 .detailsNextToImg2 {
 	height: 35vh;
 	display: flex;
 	flex-flow: column;
 	justify-content: space-between;
 	align-items: center;
-	
+
 	margin-left: 5vh;
 }
 
@@ -405,7 +550,7 @@
 }
 
 .fontSize {
-	font-size: 35px;
+	font-size: 34px;
 }
 
 .starLogoWhite {
@@ -472,6 +617,13 @@
 
 }
 
+.titleCartDiv2 {
+	display: flex;
+	justify-content: center;
+	background-color: black;
+
+}
+
 .inputQty {
 	width: 4vh;
 	height: 4vh;
@@ -484,13 +636,13 @@
 
 .buttonCheckOut {
 	height: 10vh;
-	width: 45%;
-	font-size: 3vh;
+	width: 100%;
+	font-size: 5vh;
 }
 
 .takeMyMoney {
-	width: 50vh;
-	height: 25vh;
+	width: 100%;
+	height: 100%;
 }
 
 .noShow {
@@ -506,817 +658,1068 @@
 
 .deadImg {
 	width: 100%;
-	height: 65vh;
+	height: 100%;
 }
 
 /*----------footer-------*/
+.footer {
+	height: 12vh;
+	background-color: black;
+	border-top: solid;
+	border-top-color: white;
+}
 
 .textFooter {
 	font-size: 3vh;
 	color: whitesmoke;
 	display: flex;
 	justify-content: center;
-	margin-top: 3vh;
-	/*}*/
+	margin-top: 1vh;
+	text-align: center;
+}
 
-	/*landscape Iphone----------------------------*/
-	@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+/*}*/
 
-		.navVar {
-			background-color: black;
-			color: white;
-			font-family: 'Germania One', cursive;
+/*landscape Iphone----------------------------*/
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
 
+	.navVar {
+		background-color: black;
+		color: white;
+		font-family: 'Germania One', cursive;
 
-		}
 
-
-		.navIcon {
-			height: 25vh;
-			width: 25vh;
-			background-image: url(../images/mjolnir.png);
-			background-size: cover;
-
-		}
-
-		.rotateIcon:hover {
-			-webkit-transform: rotate(265deg);
-			-moz-transform: rotate(265deg);
-			-o-transform: rotate(265deg);
-			-ms-transform: rotate(265deg);
-			transform: rotate(265deg);
-		}
-
-		.navBar {
-			background-color: black;
-
-			width: 18vh;
-			color: white;
-			font-family: 'Germania One', cursive;
-			font-size: 5vh;
-		}
-
-		.logo {
-			width: 70vh;
-			height: 25vh;
-
-			background-image: url(../images/bookisthorBlack.png);
-			background-size: cover;
-			margin-left: 30vh;
-		}
-
-		.logoPosition {
-			display: flex;
-			justify-content: flex-start;
-
-		}
-
-		.cartLogo {
-			display: inline-flex;
-			height: 10vh;
-			width: 10vh;
-			margin-top: 1vh;
-			background-image: url(../images/baseline_add_shopping_cart_white_18dp.png);
-			background-size: cover;
-
-		}
-
-		.shopIcon {
-			display: flex;
-			justify-content: flex-end;
-			vertical-align: top;
-			height: 12vh;
-			border-bottom: solid;
-			border-top: solid;
-			border-width: 0.5vh;
-			border-top-color: white;
-			border-bottom-color: white;
-			background-color: black;
-		}
-
-		.booksLink {
-			display: none;
-		}
-
-		.comicLink {
-			display: none;
-
-		}
-
-		.textShoIcon {
-			height: 5vh;
-			width: 5vh;
-			display: inline-flex;
-			margin-left: 2vh;
-			vertical-align: top;
-			font-size: 4vh;
-
-		}
-
-		.IconItem {
-			font-size: 8vh;
-			height: 11vh;
-			width: 10vh;
-
-			color: white;
-		}
-
-		.divMain {
-			background-color: black;
-			height: 220vh;
-			border-top: solid;
-			border-width: 0.5vh;
-			border-top-color: white;
-			padding-top: 1vh;
-		}
-
-		.footer {
-			height: 10vh;
-			background-color: black;
-			border-top: solid;
-			border-top-color: white;
-		}
-
-
-
-
-		/*-------aboutMain--------*/
-		.aboutMain {
-			background-color: gainsboro;
-			height: 70%;
-			border-top: solid;
-			border-width: 0.5vh;
-			border-top-color: white;
-		}
-
-		.textUnderline {
-			border-bottom: solid;
-			border-width: 0.5vh;
-			border-color: black;
-		}
-
-		.marginTop {
-			margin-top: 2vh;
-		}
-
-		/*---booksMain---*/
-		.booksMain {
-			background-color: black;
-			height: 70%;
-			border-top: solid;
-			border-width: 0.5vh;
-			border-top-color: white;
-
-		}
-
-		.divSizeFlip {
-			width: 100%;
-			height: 60vh;
-			padding-top: 3vh;
-			border-top: solid;
-			border-top-width: 0.5vh;
-			border-top-color: white;
-
-		}
-
-		.filterBar {
-			display: inline-flex;
-			height: 5vh;
-			width: 100%;
-			/*	margin-left:1vh;*/
-
-		}
-
-		.inputSearch {
-			width: 100%;
-			height: 5vh;
-		}
-
-		.imgBook {
-			width: 100%;
-			height: 100%;
-			align-items: center;
-
-
-		}
-
-		.downMenuFilter {
-			width: 27vh;
-
-
-		}
-
-		.paddingTop {
-			padding-top: 2vh;
-		}
-
-		.filterButton {
-			background-color: gray;
-			color: black;
-			height: 5vh;
-
-		}
-
-		.imgBookSize {
-			margin-top: 3vh;
-		}
-
-		.addButton {
-			display: flex;
-			justify-content: center;
-
-		}
-
-		.starLogo {
-			width: 7vh;
-			height: 7vh;
-			background-image: url(../images/baseline_grade_black_18dp.png);
-			background-size: cover;
-		}
-
-		.valBox {
-			margin-top: 1vh;
-			margin-left: 1vh;
-		}
-
-		.priceLogo {
-			width: 7vh;
-			height: 7vh;
-			background-image: url(../images/baseline_attach_money_black_18dp.png);
-			background-size: cover;
-		}
-
-		.priceBox {
-			margin-top: 1vh;
-
-
-		}
-
-		.innerInfo {
-			display: inline-flex;
-
-		}
-
-		.innerInfoButton {
-			margin-left: 5vh
-		}
-
-		.backPosition {
-
-			display: flex;
-			flex-flow: column;
-			vertical-align: baseline;
-		}
-
-		.divButtons {
-			margin-bottom: 1vh;
-			background-color: whitesmoke;
-
-		}
-
-		.orderContent {
-			display: flex;
-			flex-flow: column;
-			justify-content: space-between;
-		}
-
-		/*flip-----------*/
-
-		.flip-box {
-			background-color: transparent;
-			width: 260px;
-			height: 355px;
-			border: 0px solid #f1f1f1;
-			perspective: 1000px;
-			/* Remove this if you don't want the 3D effect */
-		}
-
-		/* This container is needed to position the front and back side */
-		.flip-box-inner {
-			position: relative;
-			width: 100%;
-			height: 100%;
-			text-align: center;
-			transition: transform 0.8s;
-			transform-style: preserve-3d;
-		}
-
-		/* Do an horizontal flip when you move the mouse over the flip box container */
-		.flip-box:hover .flip-box-inner {
-			transform: rotateY(180deg);
-		}
-
-		/* Position the front and back side */
-		.flip-box-front,
-		.flip-box-back {
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			backface-visibility: hidden;
-		}
-
-		/* Style the front side (fallback if image is missing) */
-		.flip-box-front {
-			background-color: #bbb;
-			color: black;
-		}
-
-		/* Style the back side */
-		.flip-box-back {
-			background-color: maroon;
-			color: white;
-			transform: rotateY(180deg);
-		}
-
-		/*detail-----------*/
-		.imgSizeDetail {
-			width: 25vh;
-			height: 35vh;
-			margin-right: 2vh;
-			margin-bottom: 2vh;
-		}
-
-		.detailPosition {
-			display: flex;
-			flex-flow: wrap;
-		}
-
-		.details {
-
-			margin-top: 2vh;
-			border: solid;
-			border-width: 0.5vh;
-			border-color: whitesmoke;
-			color: whitesmoke;
-			font-family: 'Germania One', cursive;
-
-		}
-
-		.font {
-			font-family: 'Germania One', cursive;
-
-		}
-
-		.colorFont {
-			color: whitesmoke;
-		}
-
-		.fontSizeCart {
-			font-size: 4vh;
-
-		}
-
-		.detailsNextToImg {
-			height: 35vh;
-			display: flex;
-			flex-flow: column;
-			justify-content: space-around;
-		}
-
-		.insideDetailsNextToImg {
-			display: inline-flex;
-
-		}
-
-		.fontSize {
-			font-size: 35px;
-		}
-
-		.starLogoWhite {
-			width: 6vh;
-			height: 6vh;
-			background-image: url(../images/baseline_grade_white_18dp.png);
-			background-size: cover;
-		}
-
-		.priceLogoWhite {
-			width: 5vh;
-			height: 5vh;
-			background-image: url(../images/baseline_attach_money_white_18dp.png);
-			background-size: cover;
-			margin-top: 0.5vh;
-		}
-
-		.locateButtons {
-			display: flex;
-			justify-content: space-around;
-		}
-
-		.underLineOn {
-			border-bottom: solid;
-			border-bottom-width: 0.5vh;
-			border-bottom-color: whitesmoke;
-		}
-
-		/*-----cart---------------------*/
-
-		.imgCartSize {
-			width: 23vh;
-			height: 30vh;
-			margin-bottom: 2vh;
-		}
-
-		.cartDiv {
-
-			display: inline-flex;
-			flex-flow: wrap;
-			justify-content: space-around;
-		}
-
-		.cartInDiv {
-			display: flex;
-			flex-flow: column;
-			justify-content: space-around;
-		}
-
-		.titleCartDiv {
-			display: flex;
-			justify-content: center;
-		}
-
-		.inputQty {
-			width: 5vh;
-			height: 5vh;
-		}
-
-		.buttonRemove {
-			display: flex;
-			justify-content: flex-end;
-		}
-
-		.buttonCheckOut {
-			height: 10vh;
-			width: 45%;
-			font-size: 3vh;
-		}
-
-		.takeMyMoney {
-			width: 50vh;
-			height: 25vh;
-		}
 	}
+.navVar2 {
+	
+	color: black;
+	font-family: 'Germania One', cursive;
+    height: 14vh;
+    font-size: xx-large;
+}
 
-
-	/*portrait ipad-------------------------------*/
-	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-		.navVar {
-			background-color: #2f2f1e;
-			color: white;
-			font-family: 'Germania One', cursive;
-			font-size: 5vh;
-		}
-
-
-		.navIcon {
-			height: 12vh;
-			width: 12vh;
-			background-image: url(../images/mjolnirIpad.png);
-			background-size: cover;
-			border-color: #2f2f1e;
-
-		}
-
-
-		.navBar {
-			background-color: #2f2f1e;
-			width: 20vh;
-		}
-
-		.logo {
-			width: 40vh;
-			height: 10vh;
-			border-color: #2f2f1e;
-			background-image: url(../images/bookisthoripad.png);
-			background-size: cover;
-			margin-left: 5vh;
-		}
-
-		.logoPosition {
-			display: flex;
-			justify-content: flex-start;
-
-
-		}
-
-		.cartLogo {
-			display: inline-flex;
-			height: 6vh;
-			width: 6vh;
-			margin-left: 2vh;
-			font-size: 2vh;
-			background-image: url(../images/baseline_add_shopping_cart_white_18dp.png);
-			background-size: cover;
-			margin-top: 1vh;
-
-		}
-
-		.shopIcon {
-			display: flex;
-			justify-content: flex-end;
-			vertical-align: top;
-			height: 8vh;
-			border-bottom: solid;
-			border-bottom-color: white;
-		}
-
-		.booksLink {
-			display: none;
-		}
-
-		.comicLink {
-			display: none;
-
-		}
-
-		.textShoIcon {
-			height: 6vh;
-			width: 8vh;
-			display: inline-flex;
-			margin-left: 2vh;
-			vertical-align: top;
-
-
-		}
-
-		.IconItem {
-			font-size: 6vh;
-			height: 6vh;
-			width: 8vh;
-
-		}
-
-
-		.divMain {
-			background-color: black;
-			height: 101vh;
-			border-top: solid;
-			border-width: 0.5vh;
-			border-top-color: white;
-		}
-
-		.footer {
-			height: 10vh;
-			background-color: #2f2f1e;
-			border-top: solid;
-			border-top-color: white;
-		}
-
-		.carusel {
-			width: 100%;
-			height: 100%;
-		}
-	}
-
-	/*landscape ipad------------------------*/
-	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-
-		.navVar {
-			background-color: #2f2f1e;
-			color: white;
-			font-family: 'Germania One', cursive;
-			font-size: 9vh;
-
-		}
-
-		.navIcon {
-			height: 20vh;
-			width: 20vh;
-			background-image: url(../images/mjolnirIpad.png);
-			background-size: cover;
-			border-color: #2f2f1e;
-
-		}
-
-
-		.navBar {
-			background-color: #2f2f1e;
-			width: 30vh;
-		}
-
-		.logo {
-			width: 78vh;
-			height: 25vh;
-			border-color: #2f2f1e;
-			background-image: url(../images/bookisthoripad.png);
-			background-size: cover;
-			margin-left: 5vh;
-
-		}
-
-		.logoPosition {
-			display: flex;
-			justify-content: flex-start;
-		}
-
-		.cartLogo {
-			display: inline-flex;
-			height: 8vh;
-			width: 8vh;
-			margin-left: 2vh;
-			font-size: 2vh;
-			background-image: url(../images/baseline_add_shopping_cart_white_18dp.png);
-			background-size: cover;
-			margin-top: 1vh;
-
-
-
-		}
-
-		.shopIcon {
-			display: flex;
-			justify-content: flex-end;
-			vertical-align: top;
-			height: 10vh;
-			border-bottom: solid;
-			border-bottom-color: white;
-			background-color: black;
-		}
-
-		.booksLink {
-			display: none;
-		}
-
-		.comicLink {
-			display: none;
-
-		}
-
-
-		.textShoIcon {
-			height: 10vh;
-			width: 8vh;
-			display: inline-flex;
-			margin-left: 2vh;
-			vertical-align: top;
-
-
-		}
-
-		.IconItem {
-			font-size: 8vh;
-			height: 10vh;
-			width: 8vh;
-
-		}
-
-
-
-		.divMain {
-			background-color: black;
-			height: 176vh;
-			border-top: solid;
-			border-width: 0.5vh;
-			border-top-color: white;
-		}
-
-		.footer {
-			height: 10vh;
-			background-color: #2f2f1e;
-			border-top: solid;
-			border-top-color: white;
-		}
-
-		.carusel {
-			width: 100%;
-			height: 100%;
-		}
+	.navIcon {
+		height: 25vh;
+		width: 25vh;
+		background-image: url(../images/mjolnir.png);
+		background-size: cover;
 
 	}
 
-	/*Laptop----------------------------*/
-	@media (min-width: 1080px) and (max-width: 1980px) {
+	.rotateIcon:hover {
+		-webkit-transform: rotate(265deg);
+		-moz-transform: rotate(265deg);
+		-o-transform: rotate(265deg);
+		-ms-transform: rotate(265deg);
+		transform: rotate(265deg);
+	}
 
-		.navVar {
-			background-color: whitesmoke;
-			color: black;
-			font-family: 'Germania One', cursive;
-			font-size: 5vh;
-		}
+	.navBar {
+		background-color: black;
 
+		width: 18vh;
+		color: white;
+		font-family: 'Germania One', cursive;
+		font-size: 5vh;
+	}
 
-		.navIcon {
-			height: 13vh;
-			width: 13vh;
-			background-image: url(../images/mjolnirLaptop.png);
-			background-size: cover;
+	.logo {
+		width: 70vh;
+		height: 25vh;
 
+		background-image: url(../images/bookisthorBlack2.png);
+		background-size: cover;
+		margin-left: 30vh;
+	}
 
-		}
-
-		.rotateIcon:hover {
-			-webkit-transform: rotate(265deg);
-			-moz-transform: rotate(265deg);
-			-o-transform: rotate(265deg);
-			-ms-transform: rotate(265deg);
-			transform: rotate(265deg);
-		}
-
-
-		.navBar {
-			background-color: whitesmoke;
-			width: 24vh;
-		}
-
-		.logo {
-			width: 56vh;
-			height: 15vh;
-
-			background-image: url(../images/bookisthorLaptop.png);
-			background-size: cover;
-
-			margin-left: 55vh;
-		}
-
-		.logoPosition {
-			display: flex;
-			justify-content: flex-start;
-
-
-		}
-
-		.cartLogo {
-			display: inline-flex;
-			height: 6vh;
-			width: 6vh;
-			margin-left: 2vh;
-			font-size: 2vh;
-			background-image: url(../images/baseline_add_shopping_cart_black_18dp.png);
-			background-size: cover;
-			margin-top: 1vh;
-
-		}
-
-		.shopIcon {
-			display: flex;
-			justify-content: space-between;
-			vertical-align: top;
-			height: 8vh;
-			border-bottom: solid;
-			border-bottom-color: black;
-			background-color: whitesmoke;
-
-		}
-
-		.linksToGallery {
-			display: inline-flex;
-			margin-left: 40%;
-		}
-
-		.booksLink {
-			margin-top: 7px;
-			margin-left: 12px;
-			font-family: 'Germania One', cursive;
-			display: block;
-			color: black;
-		}
-
-		.comicLink {
-			margin-left: 121px;
-			margin-top: 7px;
-			font-family: 'Germania One', cursive;
-			display: block;
-			color: black;
-
-		}
-
-		.textShoIcon {
-			height: 6vh;
-			width: 8vh;
-			display: inline-flex;
-			margin-left: 2vh;
-			vertical-align: top;
-
-
-
-		}
-
-		.IconItem {
-
-			height: 6vh;
-			width: 8vh;
-			margin-top: 1vh;
-			color: black;
-
-
-
-		}
-
-
-		.divMain {
-			background-color: gainsboro;
-			height: 70%;
-			border-top: solid;
-			border-width: 0.5vh;
-			border-top-color: black;
-		}
-
-		.footer {
-			height: 10vh;
-			background-color: whitesmoke;
-			border-top: solid;
-			border-top-color: black;
-		}
-
-		/*	--------aboutMain-----------*/
+	.logoPosition {
+		display: flex;
+		justify-content: flex-start;
 
 	}
+
+	.cartLogo {
+		display: inline-flex;
+		height: 10vh;
+		width: 10vh;
+		margin-top: 1vh;
+		background-image: url(../images/baseline_add_shopping_cart_white_18dp.png);
+		background-size: cover;
+
+	}
+
+	.shopIcon {
+		display: flex;
+		justify-content: space-between;
+		vertical-align: top;
+		height: 12vh;
+		border-bottom: solid;
+		border-top: solid;
+		border-width: 0.5vh;
+		border-top-color: white;
+		border-bottom-color: white;
+		background-color: black;
+	}
+
+	.booksLink {
+		display: none;
+	}
+
+	.comicLink {
+		display: none;
+
+	}
+
+	.textShoIcon {
+		height: 5vh;
+		width: 5vh;
+		display: inline-flex;
+		margin-left: 2vh;
+		vertical-align: top;
+		font-size: 4vh;
+
+	}
+
+	.IconItem {
+		font-size: 8vh;
+		height: 11vh;
+		width: 10vh;
+
+		color: white;
+	}
+	.scrollText {
+	height: 10vh;
+	overflow: hidden;
+	position: relative;
+	width: 60%;
+	display: flex;
+	justify-content: flex-start;
+
+
+}
+
+.scrollText h3 {
+
+	font-family: 'Germania One', cursive;
+	font-size: 6vh;
+	color: whitesmoke;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	line-height: 100%;
+	margin-top: 1vh;
+	text-align: center;
+	/* Starting position */
+	-moz-transform: translateX(100%);
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
+	/* Apply animation to this element */
+	-moz-animation: scrollText 15s linear infinite;
+	-webkit-animation: scrollText 15s linear infinite;
+	animation: example1 15s linear infinite;
+}
+
+	.divMain {
+		background-color: black;
+		height: 220vh;
+		border-top: solid;
+		border-width: 0.5vh;
+		border-top-color: white;
+		padding-top: 1vh;
+	}
+
+	.footer {
+		height: 20vh;
+		background-color: black;
+		border-top: solid;
+		border-top-color: white;
+	}
+.textFooter {
+	font-size: 6vh;
+	color: whitesmoke;
+	display: flex;
+	justify-content: center;
+	margin-top: 1vh;
+	text-align: center;
+}
+
+
+
+	/*-------aboutMain--------*/
+	.aboutMain {
+		background-color: gainsboro;
+		height: 70%;
+		border-top: solid;
+		border-width: 0.5vh;
+		border-top-color: white;
+	}
+
+	.textUnderline {
+		border-bottom: solid;
+		border-width: 0.5vh;
+		border-color: black;
+	}
+
+	.marginTop {
+		margin-top: 2vh;
+	}
+
+	/*---booksMain---*/
+	
+
+	.divSizeFlip {
+		width: 100%;
+		height: 100vh;
+		padding-top: 3vh;
+		border-top: solid;
+		border-top-width: 0.5vh;
+		border-top-color: white;
+
+	}
+	.divSizeFlipComic {
+	width: 100%;
+	height: 100vh;
+	padding-top: 3vh;
+	border-top: solid;
+	border-top-width: 0.5vh;
+	border-top-color: white;
+	background-image: url(../images/estrella.jpg);
+	background-size: cover;
+
+}
+
+	.filterBar {
+		display: inline-flex;
+		height: 10vh;
+		width: 100%;
+		justify-content: space-around;
+		/*	margin-left:1vh;*/
+
+	}
+
+	.inputSearch {
+		width: 138%;
+		height: 10vh;
+	}
+
+	.selectBox {
+		height: 10vh;
+	}
+
+	.imgBook {
+		width: 100%;
+		height: 100%;
+		align-items: center;
+
+
+	}
+
+	.optionThinBox {
+		width: 25vh;
+		height: 10vh;
+	}
+
+	.optionBox {
+		width: 16vh;
+		height: 10vh;
+	}
+
+	.resetButton {
+		background-image: url(../images/baseline_refresh_black_18dp.png);
+		background-size: cover;
+		height: 10vh;
+		width: 10vh;
+	}
+
+	.downMenuFilter {
+		width: 27vh;
+
+
+	}
+
+	.paddingTop {
+		padding-top: 2vh;
+	}
+
+	.filterButton {
+		background-color: gray;
+		color: black;
+		height: 5vh;
+
+	}
+
+	.imgBookSize {
+		margin-top: 3vh;
+	}
+
+	.addButton {
+		display: flex;
+		justify-content: center;
+
+	}
+
+	.starLogo {
+		width: 7vh;
+		height: 7vh;
+		background-image: url(../images/baseline_grade_black_18dp.png);
+		background-size: cover;
+	}
+
+	.valBox {
+		margin-top: 1vh;
+		margin-left: 1vh;
+	}
+
+	.priceLogo {
+		width: 7vh;
+		height: 7vh;
+		background-image: url(../images/baseline_attach_money_black_18dp.png);
+		background-size: cover;
+	}
+
+	.priceBox {
+		margin-top: 1vh;
+
+
+	}
+
+	.innerInfo {
+		display: inline-flex;
+
+	}
+
+	.innerInfoButton {
+		margin-left: 5vh
+	}
+
+	.backPosition {
+
+		display: flex;
+		flex-flow: column;
+		vertical-align: baseline;
+	}
+
+	.divButtons {
+		margin-bottom: 1vh;
+		background-color: whitesmoke;
+
+	}
+
+	.orderContent {
+		display: flex;
+		flex-flow: column;
+		justify-content: space-between;
+	}
+
+	/*flip-----------*/
+
+	.flip-box {
+		background-color: transparent;
+		width: 260px;
+		height: 355px;
+		border: 0px solid #f1f1f1;
+		perspective: 1000px;
+		/* Remove this if you don't want the 3D effect */
+	}
+
+	/* This container is needed to position the front and back side */
+	.flip-box-inner {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		transition: transform 0.8s;
+		transform-style: preserve-3d;
+	}
+
+	/* Do an horizontal flip when you move the mouse over the flip box container */
+	.flip-box:hover .flip-box-inner {
+		transform: rotateY(180deg);
+	}
+
+	/* Position the front and back side */
+	.flip-box-front,
+	.flip-box-back {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		backface-visibility: hidden;
+	}
+
+	/* Style the front side (fallback if image is missing) */
+	.flip-box-front {
+		background-color: #bbb;
+		color: black;
+	}
+
+	/* Style the back side */
+	.flip-box-back {
+		background-color: maroon;
+		color: white;
+		transform: rotateY(180deg);
+	}
+
+	/*detail-----------*/
+	
+	.imgSizeDetail {
+
+	height: 78vh;
+	/*	margin-right: 2vh;*/
+	margin-bottom: 2vh;
+}
+
+.detailPosition {
+	display: flex;
+	flex-flow: wrap;
+}
+
+.details {
+
+	margin-top: 2vh;
+	border: solid;
+	border-width: 0.5vh;
+	border-color: whitesmoke;
+	color: whitesmoke;
+	font-family: 'Germania One', cursive;
+	font-size:5vh;
+
+}
+	
+
+	.font {
+		font-family: 'Germania One', cursive;
+
+	}
+
+	.colorFont {
+		color: whitesmoke;
+	}
+
+	.fontSizeCart {
+		font-size: 8vh;
+
+	}
+
+	.detailsNextToImg {
+		height: 78vh;
+		display: flex;
+		flex-flow: column;
+		justify-content: space-between;
+	}
+
+	.insideDetailsNextToImg {
+		display: inline-flex;
+
+	}
+
+	.fontSize {
+		font-size:43px;
+	}
+
+	.starLogoWhite {
+		width: 12vh;
+		height: 12vh;
+		background-image: url(../images/baseline_grade_white_18dp.png);
+		background-size: cover;
+	}
+
+	.priceLogoWhite {
+		width: 10vh;
+		height: 10vh;
+		background-image: url(../images/baseline_attach_money_white_18dp.png);
+		background-size: cover;
+		margin-top: 0.5vh;
+	}
+
+	.locateButtons {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.underLineOn {
+		border-bottom: solid;
+		border-bottom-width: 0.5vh;
+		border-bottom-color: whitesmoke;
+	}
+
+	/*-----cart---------------------*/
+
+	.imgCartSize {
+		
+		height: 50vh;
+		margin-bottom: 2vh;
+	}
+
+	.cartDiv {
+
+		display: inline-flex;
+		flex-flow: wrap;
+		justify-content: space-around;
+	}
+
+	.cartInDiv {
+		display: flex;
+		flex-flow: column;
+		justify-content: space-around;
+	}
+
+	.titleCartDiv {
+		display: flex;
+		justify-content: center;
+	}
+
+	.inputQty {
+		width:10vh;
+		height: 10vh;
+	}
+
+	.buttonRemove {
+		display: flex;
+		justify-content: flex-end;
+		height: 12vh;
+		width:100%;
+		font-size:5vh;
+	}
+
+	.buttonCheckOut {
+		height: 20vh;
+		width: 100%;
+		font-size: 10vh;
+	}
+
+	.takeMyMoney {
+		width: 100%;
+		height: 100%;
+	}
+	.deadImg {
+	width: 100%;
+	height: 100%;
+}
+	.deadText {
+	font-size: 8vh;
+	color: whitesmoke;
+	display: flex;
+	justify-content: center;
+}
+	.deadTextBook {
+	font-size: 10vh;
+	color: whitesmoke;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+}
+
+
+/*portrait ipad-------------------------------*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	.navVar {
+		background-color: #2f2f1e;
+		color: white;
+		font-family: 'Germania One', cursive;
+		font-size: 5vh;
+	}
+
+
+	.navIcon {
+		height: 12vh;
+		width: 12vh;
+		background-image: url(../images/mjolnirIpad.png);
+		background-size: cover;
+		border-color: #2f2f1e;
+
+	}
+
+
+	.navBar {
+		background-color: #2f2f1e;
+		width: 20vh;
+	}
+
+	.logo {
+		width: 40vh;
+		height: 10vh;
+		border-color: #2f2f1e;
+		background-image: url(../images/bookisthoripad.png);
+		background-size: cover;
+		margin-left: 5vh;
+	}
+
+	.logoPosition {
+		display: flex;
+		justify-content: flex-start;
+
+
+	}
+
+	.cartLogo {
+		display: inline-flex;
+		height: 6vh;
+		width: 6vh;
+		margin-left: 2vh;
+		font-size: 2vh;
+		background-image: url(../images/baseline_add_shopping_cart_white_18dp.png);
+		background-size: cover;
+		margin-top: 1vh;
+
+	}
+
+	.shopIcon {
+		display: flex;
+		justify-content: flex-end;
+		vertical-align: top;
+		height: 8vh;
+		border-bottom: solid;
+		border-bottom-color: white;
+	}
+
+	.booksLink {
+		display: none;
+	}
+
+	.comicLink {
+		display: none;
+
+	}
+
+	.textShoIcon {
+		height: 6vh;
+		width: 8vh;
+		display: inline-flex;
+		margin-left: 2vh;
+		vertical-align: top;
+
+
+	}
+
+	.IconItem {
+		font-size: 6vh;
+		height: 6vh;
+		width: 8vh;
+		    margin-top: 0vh;
+
+	}
+
+
+	.divMain {
+		background-color: black;
+		height: 95vh;
+		border-top: solid;
+		border-width: 0.5vh;
+		border-top-color: white;
+	}
+
+	.footer {
+		height: 10vh;
+		background-color: #2f2f1e;
+		border-top: solid;
+		border-top-color: white;
+	}
+
+	.carusel {
+		width: 100%;
+		height: 100%;
+	}
+	.textArea {
+	text-align: justify;
+		font-size:4vh;
+}
+	.divSizeFlip {
+	width: 100%;
+	height: 100%;
+	padding-top: 3vh;
+		padding-bottom: 3vh;
+	border-top: solid;
+	border-top-width: 0.5vh;
+	border-top-color: white;
+	background-image: url(../images/estrellas.jpg);
+	background-size: cover;
+
+}
+.divSizeFlipComic {
+	width: 100%;
+	height: 100%;
+	padding-top: 3vh;
+	padding-bottom:3vh;
+	border-top: solid;
+	border-top-width: 0.5vh;
+	border-top-color: white;
+	background-image: url(../images/estrella.jpg);
+	background-size: cover;
+
+}
+	
+.imgBook {
+	width:36vh;
+	height: 50vh;
+	align-items: center;
+
+
+}
+	.starLogo {
+	width: 7vh;
+	height: 7vh;
+	background-image: url(../images/baseline_grade_black_18dp.png);
+	background-size: cover;
+}
+
+.valBox {
+	margin-top: 1vh;
+	margin-left: 1vh;
+	font-size:5vh;
+}
+
+.priceLogo {
+	width: 7vh;
+	height: 7vh;
+	background-image: url(../images/baseline_attach_money_black_18dp.png);
+	background-size: cover;
+}
+
+.priceBox {
+/*	margin-top: 1vh;*/
+	font-size:5vh;
+
+
+}
+	.fontSize{
+		font-size:5vh;
+	}
+	.divButtons {
+	margin-bottom: 1vh;
+	background-color: whitesmoke;
+		width: 10vh;
+		height: 5vh;
+		font-size:3vh;
+
+}
+.innerInfoButton {
+	margin-left: 5vh;
+	width: 15vh;
+		height: 5vh;
+		font-size:3vh;
+
+}
+	.filterBar {
+	display: inline-flex;
+		justify-content: space-around;
+	height: 5vh;
+	width: 100%;
+	background-color: black;
+	/*	margin-left:1vh;*/
+
+}
+	
+.inputSearch {
+	width: 118%;
+	height: 5vh;
+	font-size:2vh;
+}
+	.selectBox {
+	height: 5vh;
+		width: 14vh;
+    font-size: 2vh;
+}
+	
+
+.optionBox {
+	width: 8vh;
+	height: 5vh;
+	font-size: 2vh;
+}
+
+.optionThinBox {
+	width: 10vh;
+	height: 5vh;
+	font-size: 2vh;
+}
+	.AddIpad{
+		width: 15vh;
+		height: 6vh;
+		font-size:2vh;
+	}
+	
+.details {
+
+	margin-top: 2vh;
+	border: solid;
+	border-width: 0.5vh;
+	border-color: whitesmoke;
+	color: whitesmoke;
+	font-family: 'Germania One', cursive;
+	font-size:3vh;
+
+}
+	.fontSizeCo {
+		font-size:39px;
+	}
+	.fontSizeIpad{
+		font-size:4vh;
+	}
+
+}
+
+/*landscape ipad------------------------*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+	.navVar {
+		background-color: #2f2f1e;
+		color: white;
+		font-family: 'Germania One', cursive;
+		font-size: 9vh;
+
+	}
+
+	.navIcon {
+		height: 20vh;
+		width: 20vh;
+		background-image: url(../images/mjolnirIpad.png);
+		background-size: cover;
+		border-color: #2f2f1e;
+
+	}
+
+
+	.navBar {
+		background-color: #2f2f1e;
+		width: 30vh;
+	}
+
+	.logo {
+		width: 78vh;
+		height: 25vh;
+		border-color: #2f2f1e;
+		background-image: url(../images/bookisthoripad.png);
+		background-size: cover;
+		margin-left: 5vh;
+
+	}
+
+	.logoPosition {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	.cartLogo {
+		display: inline-flex;
+		height: 8vh;
+		width: 8vh;
+		margin-left: 2vh;
+		font-size: 2vh;
+		background-image: url(../images/baseline_add_shopping_cart_white_18dp.png);
+		background-size: cover;
+		margin-top: 1vh;
+
+
+
+	}
+
+	.shopIcon {
+		display: flex;
+		justify-content: flex-end;
+		vertical-align: top;
+		height: 10vh;
+		border-bottom: solid;
+		border-bottom-color: white;
+		background-color: black;
+	}
+
+	.booksLink {
+		display: none;
+	}
+
+	.comicLink {
+		display: none;
+
+	}
+
+
+	.textShoIcon {
+		height: 10vh;
+		width: 8vh;
+		display: inline-flex;
+		margin-left: 2vh;
+		vertical-align: top;
+
+
+	}
+
+	.IconItem {
+		font-size: 8vh;
+		height: 10vh;
+		width: 8vh;
+
+	}
+
+
+
+	.divMain {
+		background-color: black;
+		height: 176vh;
+		border-top: solid;
+		border-width: 0.5vh;
+		border-top-color: white;
+	}
+
+	.footer {
+		height: 10vh;
+		background-color: #2f2f1e;
+		border-top: solid;
+		border-top-color: white;
+	}
+
+	.carusel {
+		width: 100%;
+		height: 100%;
+	}
+
+}
+
+/*Laptop----------------------------*/
+@media (min-width: 1080px) and (max-width: 1980px) {
+
+	.navVar {
+		background-color: whitesmoke;
+		color: black;
+		font-family: 'Germania One', cursive;
+		font-size: 5vh;
+	}
+
+
+	.navIcon {
+		height: 13vh;
+		width: 13vh;
+		background-image: url(../images/mjolnirLaptop.png);
+		background-size: cover;
+
+
+	}
+
+	.rotateIcon:hover {
+		-webkit-transform: rotate(265deg);
+		-moz-transform: rotate(265deg);
+		-o-transform: rotate(265deg);
+		-ms-transform: rotate(265deg);
+		transform: rotate(265deg);
+	}
+
+
+	.navBar {
+		background-color: whitesmoke;
+		width: 24vh;
+	}
+
+	.logo {
+		width: 56vh;
+		height: 15vh;
+
+		background-image: url(../images/bookisthorLaptop.png);
+		background-size: cover;
+
+		margin-left: 55vh;
+	}
+
+	.logoPosition {
+		display: flex;
+		justify-content: flex-start;
+
+
+	}
+
+	.cartLogo {
+		display: inline-flex;
+		height: 6vh;
+		width: 6vh;
+		margin-left: 2vh;
+		font-size: 2vh;
+		background-image: url(../images/baseline_add_shopping_cart_black_18dp.png);
+		background-size: cover;
+		margin-top: 1vh;
+
+	}
+
+	.shopIcon {
+		display: flex;
+		justify-content: space-between;
+		vertical-align: top;
+		height: 8vh;
+		border-bottom: solid;
+		border-bottom-color: black;
+		background-color: whitesmoke;
+
+	}
+
+	.linksToGallery {
+		display: inline-flex;
+		margin-left: 40%;
+	}
+
+	.booksLink {
+		margin-top: 7px;
+		margin-left: 12px;
+		font-family: 'Germania One', cursive;
+		display: block;
+		color: black;
+	}
+
+	.comicLink {
+		margin-left: 121px;
+		margin-top: 7px;
+		font-family: 'Germania One', cursive;
+		display: block;
+		color: black;
+
+	}
+
+	.textShoIcon {
+		height: 6vh;
+		width: 8vh;
+		display: inline-flex;
+		margin-left: 2vh;
+		vertical-align: top;
+
+
+
+	}
+
+	.IconItem {
+
+		height: 6vh;
+		width: 7vh;
+		margin-top: 1vh;
+		color: black;
+
+
+
+	}
+
+
+	.divMain {
+		background-color: gainsboro;
+		height: 70%;
+		border-top: solid;
+		border-width: 0.5vh;
+		border-top-color: black;
+	}
+
+	.footer {
+		height: 10vh;
+		background-color: whitesmoke;
+		border-top: solid;
+		border-top-color: black;
+
+	}
+
+	.textFooter {
+		font-size: 3vh;
+		color: black;
+		display: flex;
+		justify-content: center;
+		margin-top: 1vh;
+		text-align: center;
+	}
+
+	/*	--------aboutMain-----------*/
+
+}

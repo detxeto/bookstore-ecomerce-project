@@ -26,11 +26,11 @@
 				</button>
 
 				<div class="dropdown-menu navBar " aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item   navVar " href="#" v-on:click="makeActive('indexMain')">Home</a>
-					<a class="dropdown-item  navVar  " href="#" @click="makeActive('aboutMain')">About</a>
-					<a class="dropdown-item  navVar  " href="#" @click="makeActive('allBookMain')">Books</a>
+					<a class="dropdown-item   navVar2 " href="#" v-on:click="makeActive('indexMain')">Home</a>
+					<a class="dropdown-item  navVar2  " href="#" @click="makeActive('aboutMain')">About</a>
+					<a class="dropdown-item  navVar2  " href="#" @click="makeActive('allBookMain')">Books</a>
 
-					<a class="dropdown-item  navVar  ¡" href="#" @click="makeActive('allComicMain')">Comics</a>
+					<a class="dropdown-item  navVar2  ¡" href="#" @click="makeActive('allComicMain')">Comics</a>
 
 				</div>
 
@@ -40,53 +40,57 @@
 
 
 			</div>
+
+
+
+
+
+			<div class="shopIcon col-xs-12 col-sm-12  col-md-12 col-xl-12 ">
+
+
+				<div class="linksToGallery ">
+					<div class="booksLink">
+						<div href="#" @click="makeActive('allBookMain')">
+							<h4>Books</h4>
+						</div>
+					</div>
+					<div class=" comicLink">
+						<div href="#" @click="makeActive('allComicMain')">
+							<h4>Comics</h4>
+						</div>
+					</div>
+
+
+				</div>
+				<div class="scrollText">
+					<h3>"By Odin's Beard" </h3>
+
+				</div>
+
+
+				<div>
+					<a href="#" @click="makeActive('cartMain'),resetInput('bookSearch','comicSearch')">
+						<div class="cartLogo"></div>
+					</a>
+
+					<div class="textShoIcon">
+						<h6 class="IconItem">{{shoppingCart.length}}</h6>
+					</div>
+				</div>
+			</div>
 		</header>
-
-
-
-
-		<div class="shopIcon col-xs-12 col-sm-12  col-md-12 col-xl-6 ">
-
-
-			<div class="linksToGallery ">
-				<div class="booksLink">
-					<div href="#" @click="makeActive('allBookMain')">
-						<h4>Books</h4>
-					</div>
-				</div>
-				<div class=" comicLink">
-					<div href="#" @click="makeActive('allComicMain')">
-						<h4>Comics</h4>
-					</div>
-				</div>
-
-
-			</div>
-
-
-
-			<div>
-				<a href="#" @click="makeActive('cartMain'),resetInput('bookSearch','comicSearch')">
-					<div class="cartLogo"></div>
-				</a>
-
-				<div class="textShoIcon">
-					<h6 class="IconItem">{{shoppingCart.length}}</h6>
-				</div>
-			</div>
-		</div>
 		<!--	-----------indexMain------------------------>
 
-		<div class="indexMain" v-show="active==='indexMain'">
-			<div class="divMain">
+		<div class="indexMain" v-show="active==='indexMain',scrollTop">
+			<div class="divMain ">
 				<div class="container  col-sm-10 col-xl-6">
 					<div id="carouselFade" class="carousel slide carousel-fade " data-ride="carousel">
 						<div class="carousel-inner">
 							<div class="carousel-item active ">
-								<img src="https://preview.ibb.co/hBtc0a/Gerard_min.png" class="d-block w-100 " alt="...">
+								<img src="images/laThor11.jpg" class="d-block w-100 " alt="...">
 							</div>
 							<div class="carousel-item" v-for="pic in book">
-								<img :src="pic.portada" class="d-block w-100  " alt="...">
+								<img :src="pic.portada" class="d-block w-100  " alt="..." @click="detailBook=pic,makeActive('detailMain')">
 							</div>
 						</div>
 						<a class="carousel-control-prev" href="#carouselFade" role="button" data-slide="prev">
@@ -108,10 +112,10 @@
 					<div id="carouselExampleFade2" class="carousel slide carousel-fade " data-ride="carousel">
 						<div class="carousel-inner">
 							<div class="carousel-item active">
-								<img src="https://i.ibb.co/yszc6Mm/cm.jpg" class="d-block w-100 " alt="...">
+								<img src="images/thor1.jpg" class="d-block w-100 " alt="...">
 							</div>
 							<div class="carousel-item  " v-for="pics in comic">
-								<img :src="pics.detalle" class="d-block w-100  " alt="...">
+								<img :src="pics.detalle" class="d-block w-100  " alt="..." @click="detailBook=pics,makeActive('detailMain')">
 							</div>
 
 						</div>
@@ -136,64 +140,83 @@
 		<div class="aboutMain" v-show="active==='aboutMain'">
 
 			<div class="container">
-				<div>
-					<div class="textUnderline marginTop">
-						<h5 class="font">Description:</h5>
-					</div>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin lacus nulla, aliquam in pulvinar at, porttitor ut velit. In hac habitasse platea dictumst. Sed efficitur lectus ut purus porta, nec maximus urna dictum. Vivamus sollicitudin ex sed justo cursus placerat sed in lacus. Praesent egestas euismod tellus, eu aliquet massa ultricies id. Aliquam eleifend metus ut diam congue, eget malesuada augue hendrerit. Etiam porta lacus nec diam eleifend, in tincidunt augue congue. Maecenas vitae leo et magna dignissim tristique non quis nisl. Phasellus ut felis orci. Donec consectetur quam at vestibulum molestie.</p>
-					<p>Nam faucibus, justo eget pretium volutpat, enim leo vulputate magna, nec euismod eros sem quis massa. Phasellus consectetur enim nec turpis tincidunt porttitor. Nulla aliquet vehicula felis, a molestie nisi sodales eu. Sed non ultrices ex. Praesent metus est, consequat nec eros at, hendrerit elementum urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam id lacinia libero. Vestibulum tristique laoreet nibh, ac aliquet sem tempor eget. Praesent aliquam ligula ut erat volutpat, sed volutpat nunc condimentum. Maecenas accumsan ac metus sed accumsan. Donec placerat lectus nec vulputate iaculis. Suspendisse ultricies libero ut porttitor condimentum.</p>
+
+				<div class="textUnderline marginTop font">
+					<h5 class="font textArea ">Description:</h5>
+				</div>
+				<div class="font textArea">
+					<p>After a brief overview of research into mescaline, Huxley recounts that he was given 4/10 of a gram at 11:00 am one day in May 1953. Huxley writes that he hoped to gain insight into extraordinary states of mind and expected to see brightly coloured visionary landscapes. When he only sees lights and shapes, he puts this down to being a bad visualiser; however, he experiences a great change in his perception of the external world</p>
+					<p>By 12:30 pm, a vase of flowers becomes the "miracle, moment by moment, of naked existence". The experience, he asserts, is neither agreeable nor disagreeable, but simply "is". He likens it to Meister Eckhart's "istigheit" or "is-ness", and Plato's "Being" but not separated from "Becoming". He feels he understands the Hindu concept of Satchitananda, as well as the Zen koan that, "the dharma body of the Buddha is in the hedge" and Buddhist suchness. In this state, Huxley explains he didn't have an "I", but instead a "not-I". Meaning and existence, pattern and colour become more significant than spatial relationships and time. Duration is replaced by a perpetual present.</p>
+					<p>Reflecting on the experience afterwards, Huxley finds himself in agreement with philosopher C. D. Broad that to enable us to live, the brain and nervous system eliminate unessential information from the totality of the 'Mind at Large'.</p>
+					<p>In summary, Huxley writes that the ability to think straight is not reduced while under the influence of mescaline, visual impressions are intensified, and the human experimenter will see no reason for action because the experience is so fascinating.</p>
+					<p>Temporarily leaving the chronological flow, he mentions that four or five hours into the experience he was taken to the World's Biggest Drug Store (WBDS), where he was presented with books on art. In one book, the dress in Botticelli's Judith provokes a reflection on drapery as a major artistic theme as it allows painters to include the abstract in representational art, to create mood, and also to represent the mystery of pure being. Huxley feels that human affairs are somewhat irrelevant whilst on mescaline and attempts to shed light on this by reflecting on paintings featuring people. Cézanne's Self-portrait with a straw hat seems incredibly pretentious, while Vermeer's human still lifes (also, the Le Nain brothers and Vuillard) are the nearest to reflecting this not-self state.</p>
+					<p>For Huxley, the reconciliation of these cleansed perceptions with humanity reflects the age old debate between active and contemplative life, known as the way of Martha and the way of Mary. As Huxley believes that contemplation should also include action and charity, he concludes that the experience represents contemplation at its height, but not its fullness. Correct behaviour and alertness are needed. Nonetheless, Huxley maintains that even quietistic contemplation has an ethical value, because it is concerned with negative virtues and acts to channel the transcendent into the world.</p>
+					<p>After listening to Mozart's C-Minor Piano Concerto, Gesualdo's madrigals and Alban Berg's Lyric Suite, Huxley heads into the garden. Outside, the garden chairs take on such an immense intensity that he fears being overwhelmed; this gives him an insight into madness. He reflects that spiritual literature, including the works of Jakob Böhme, William Law and the Tibetan Book of the Dead, talks of these pains and terrors. Huxley speculates that schizophrenia is the inability to escape from this reality into the world of common sense and thus help would be essential.</p>
+					<p>After lunch and the drive to the WBDS he returns home and to his ordinary state of mind. His final insight is taken from Buddhist scripture: that within sameness there is difference, although that difference is not different from sameness.</p>
+					<p>The book finishes with Huxley's final reflections on the meaning of his experience. Firstly, the urge to transcend one's self is universal through times and cultures (and was characterised by H. G. Wells as The Door in the Wall). He reasons that better, healthier "doors" are needed than alcohol and tobacco. Mescaline has the advantage of not provoking violence in takers, but its effects last an inconveniently long time and some users can have negative reactions. Ideally, self-transcendence would be found in religion, but Huxley feels that it is unlikely that this will ever happen. Christianity and mescaline seem well-suited for each other; the Native American Church for instance uses the drug as a sacrament, where its use combines religious feeling with decorum.</p>
+					<p>Huxley concludes that mescaline is not enlightenment or the Beatific vision, but a "gratuitous grace" (a term taken from Thomas Aquinas' Summa Theologica). It is not necessary but helpful, especially so for the intellectual, who can become the victim of words and symbols. Although systematic reasoning is important, direct perception has intrinsic value too. Finally, Huxley maintains that the person who has this experience will be transformed for the better.</p>
 				</div>
 				<div>
 					<div class="textUnderline">
-						<h5 class="font">Location:</h5>
+						<h5 class="font textArea">Location:</h5>
 					</div>
-					<div class="marginTop"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.715181567532!2d2.190085115426227!3d41.4019913792628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a33d2f431d45%3A0x3f1fd71f16834f39!2sUbiqum+Code+Academy!5e0!3m2!1ses!2ses!4v1553688112937" width="350" height="200" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+					<div class="marginTop"><iframe class="mapSize" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.715181567532!2d2.190085115426227!3d41.4019913792628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a33d2f431d45%3A0x3f1fd71f16834f39!2sUbiqum+Code+Academy!5e0!3m2!1ses!2ses!4v1553688112937"   frameborder="0" style="border:0" allowfullscreen></iframe></div>
+				</div>
+				<div class="font textUnderline marginTop">
+					<h5 class="textArea">Contact:</h5>
+				</div>
+				<div class="font textArea">
+					<p>To get in touch with us you can:</p>
+					<ul>
+						<li>Activate the Bat-Signal</li>
+						<li>Pray to Invocate Odin's son</li>
+						<li>Pass by Ubiqum Edition Headquarters</li>
+						<li>Send us an email at :
+						<a href="mailto:ubiqum@editions.org?subject=Reaching%20Out&body=How%20are%20you">Ubiqum Editions</a></li>
+					</ul>
 				</div>
 			</div>
-
-
-
-
-
 		</div>
+
 
 		<!--	----------------allBookMain------>
 
 		<div class="allBookMain" v-show="active==='allBookMain'">
-			<div class="booksMain">
-				<div class="filterBar container-fluid ">
 
-					<div><input id="sr" type="text" placeholder="search.." class="inputSearch" v-model="bookSearch"></div>
-					<button type="reset" id="sr" class="resetButton" @click="resetInput('bookSearch')"></button>
+			<div class="filterBar container-fluid col-xs-12 col-sm-12  col-md-12 col-xl-12">
 
-					<div>
-						<select v-model="kindBooks" class="selectBox font">
-							<option value>Filter By:</option>
-							<option value="Ensayo">Essay</option>
-							<option value="Novela">Novel</option>
-							<option value="Ciencia ficción">Sci-Fi</option>
-							<option value="Autoayuda">Self Help</option>
-						</select>
-					</div>
-					<div>
-						<select v-model="idiomBooks" class="selectBox font">
-							<option value>Idiom:</option>
-							<option value="en">English</option>
-							<option value="es">Spanish</option>
-						</select>
-					</div>
+				<div><input id="sr" type="text" placeholder="search.." class="inputSearch" v-model="bookSearch"></div>
+				<button type="reset" id="sr" class="resetButton" @click="resetInput('bookSearch,kindBooks,idiomBooks')"></button>
 
+				<div>
+					<select v-model="kindBooks" class="selectBox font">
+						<option value >Filter By:</option>
+						<option value="Ensayo" >Essay</option>
+						<option value="Novela" >Novel</option>
+						<option value="Ciencia ficción" >Sci-Fi</option>
+						<option value="Autoayuda" >Self Help</option>
+					</select>
 				</div>
+				<div>
+					<select v-model="idiomBooks" class="selectBox font">
+						<option value>Idiom:</option>
+						<option value="en">English</option>
+						<option value="es">Spanish</option>
+					</select>
+				</div>
+
+			</div>
+			<div class="booksMain topDiv ">
 				<div class="  container divSizeFlip" v-for="buk in nameFilter">
 					<div class="imgBook flip-box container">
 						<div class="imgBook flip-box-inner">
 							<div class=" flip-box-front ">
 								<img :src="buk.portada" alt="CoverImg" class=" imgBook">
 							</div>
-							<div class="imgBook flip-box-back backPosition paddingTop orderContent">
+							<div class="imgBook flip-box-backBook backPosition paddingTop orderContent">
 								<div>
-									<h2 class="font">{{buk.titulo}}</h2>
-									<h2 class="font">{{buk.editorial}}</h2>
+									<h2 class="font fontSize  titleColor">{{buk.titulo}}</h2>
+									<div ><img :src="buk.logo" alt="edLogo" class="edImgBook"></div>
 								</div>
 								<div class="innerInfo">
 									<div class="starLogo">
@@ -211,95 +234,99 @@
 								</div>
 								<div class="innerInfo ">
 									<div>
-										<button v-on:click="detailBook=buk,makeActive('detailMain')" class="  font divButtons">detail</button></div>
-									<div><button class="font divButtons innerInfoButton" @click="addToCart(buk)"data-toggle="modal" data-target="#ModalCenter3">add to Cart</button></div>
+										<button v-on:click="detailBook=buk,makeActive('detailMain'),scrollToTop()" class="  font divButtons">Detail</button></div>
+									<div><button class="font divButtons innerInfoButton" @click="addToCart(buk)" data-toggle="modal" data-target="#ModalCenter3">Add to Cart</button></div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="modal fade" id="ModalCenter3" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle3" aria-hidden="true">
-								<div class="modal-dialog modal-dialog-centered" role="document">
-									<div class="modal-content">
-										<div class="modal-header ">
-											<h2 class="modal-title font" id="ModalLongTitle3">Dear...I think it's time to let you know...</h2>
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<div class="modal-body font inImg">
-											<div class="modalText"><h3> Item it's been added to the cart</h3>
-											<h4>Special offer:</h4>
-											<h5>If you buy 5 or more items you'll get 10% discount.</h5>
-											<h5>If you buy 4 items same kind of you'll get one for  FREE!!</h5></div>
-											<div ><img  class="deadpoolModalImg" src="images/Deadpool_modal7.jpg" alt="deadpool"></div>
-										</div>
-
-									</div>
-								</div>
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header ">
+								<h2 class="modal-title font" id="ModalLongTitle3">Dear...I think it's time to let you know...</h2>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
 							</div>
-				
+							<div class="modal-body font inImg">
+								<div class="modalText">
+									<h3> Item it's been added to the cart.</h3>
+									<h4 class="backColor">Special offer:</h4>
+									<h5 class="backColorBorder">If you buy 5  different items you'll get 10% discount.</h5>
+									<h5 class="backColorBorder">If you buy 4 items same kind of you'll get one for FREE!!</h5>
+								</div>
+								<div><img class="deadpoolModalImg" src="images/Deadpool_modal7.jpg" alt="deadpool"></div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 		<div class="card searchNoMatch" v-if="bookSearch!== book.titulo && bookSearch.length>1">
 			<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg">
-			<p class="font deadTextBook">No matches found, please try again</p>
+			<p class="font deadTextBook">No matches found, please try again.</p>
 		</div>
 		<!----------------comicMain--------------->
 
 		<div class="allComicMain" v-show="active==='allComicMain'">
 
-			<div class="booksMain">
-
-				<div class="filterBar container-fluid ">
-
-					<div><input id="rs" type="text" placeholder="search.." class="inputSearch" v-model="comicSearch"></div>
-					<button type="reset" id="rs" class="resetButton" @click="resetInput('comicSearch')"></button>
-
-					<div>
-						<select v-model="kindComic" class="optionThinBox font">
-							<option value>Filter By:</option>
-							<option value="Comic">Comic</option>
-							<option value="Novela Grafica">Grafic Novel</option>
-
-						</select>
-					</div>
-					<div>
-						<select v-model="edComic" class="optionBox font">
-							<option value>Ed:</option>
-							<option value="DC">DC</option>
-							<option value="Marvel">Marvel</option>
-						</select>
-					</div>
-					<div>
-						<select v-model="idiomComic" class="optionBox font">
-							<option value>Idiom:</option>
-							<option value="en">English</option>
-							<option value="es">Spanish</option>
-						</select>
-					</div>
 
 
+			<div class="filterBar container-fluid ">
 
+				<div><input id="rs" type="text" placeholder="search.." class="inputSearch" v-model="comicSearch"></div>
+				<button type="reset" id="rs" class="resetButton" @click="resetInput('comicSearch, kindComic,idiomComic,edComic')"></button>
 
+				<div>
+					<select v-model="kindComic" class="optionThinBox font">
+						<option value>Filter By:</option>
+						<option value="Comic">Comic</option>
+						<option value="Novela Grafica">Grafic Novel</option>
 
-
-
-
-
-
+					</select>
+				</div>
+				<div>
+					<select v-model="edComic" class="optionBox font">
+						<option value>Ed:</option>
+						<option value="DC">DC</option>
+						<option value="Marvel">Marvel</option>
+					</select>
+				</div>
+				<div>
+					<select v-model="idiomComic" class="optionBox font">
+						<option value>Idiom:</option>
+						<option value="en">English</option>
+						<option value="es">Spanish</option>
+					</select>
 				</div>
 
-				<div class="  container divSizeFlip" v-for="com in comicFilter">
+
+
+
+
+
+
+
+
+
+			</div>
+			<div class="comicMain ">
+
+				<div class="  container divSizeFlipComic" v-for="com in comicFilter">
 					<div class="imgBook flip-box container">
 						<div class="imgBook flip-box-inner ">
 							<div class="imgBook flip-box-front ">
 								<img :src="com.portada" alt="imgComic" class=" imgBook">
 							</div>
-							<div class="imgBook flip-box-back backPosition paddingTop orderContent">
+							<div class="imgBook flip-box-back backPosition paddingTop orderContent">							
+
 								<div>
-									<h3 class="font">{{com.titulo}}</h3>
-									<h3 class="font">{{com.editorial}}</h3>
+									<h3 class="font fontSizeCo titleColor">{{com.titulo}}</h3>
+									<div ><img :src="com.logo" alt="edLogo"class="edImg" ></div>
 								</div>
 								<div class="innerInfo">
 									<div class="starLogo">
@@ -315,11 +342,12 @@
 										<h2 class="font priceBox ">{{com.precio}}</h2>
 									</div>
 								</div>
+								
 								<div class="innerInfo">
 									<div>
-										<button v-on:click="detailBook=com,makeActive('detailMain')" class="  font divButtons">detail</button></div>
-									<div><button class="font divButtons innerInfoButton" @click="addToCart(com)"data-toggle="modal" data-target="#ModalCenter2">add to Cart</button>
-									
+										<button v-on:click="detailBook=com,makeActive('detailMain'),scrollToTop()" class="  font divButtons">Detail</button></div>
+									<div><button class="font divButtons innerInfoButton" @click="addToCart(com)" data-toggle="modal" data-target="#ModalCenter2">Add to Cart</button>
+
 									</div>
 								</div>
 							</div>
@@ -328,26 +356,28 @@
 
 				</div>
 
-<div class="modal fade" id="ModalCenter2" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle2" aria-hidden="true">
-								<div class="modal-dialog modal-dialog-centered" role="document">
-									<div class="modal-content">
-										<div class="modal-header ">
-											<h2 class="modal-title font" id="ModalLongTitle2">So...As I was Saying...</h2>
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<div class="modal-body font inImg">
-											<div class="modalText"><h3> Item it's been added to the cart</h3>
-											<h4>Special offer:</h4>
-											<h5>If you buy 5 or more items you'll get 10% discount.</h5>
-											<h5>If you buy 4 items same kind of you'll get one for  FREE!!</h5></div>
-											<div ><img  class="deadpoolModalImg" src="images/deadpool_modal8.jpg" alt="deadpool"></div>
-										</div>
-
-									</div>
-								</div>
+				<div class="modal fade" id="ModalCenter2" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle2" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header ">
+								<h2 class="modal-title font" id="ModalLongTitle2">So...As I was Saying...</h2>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
 							</div>
+							<div class="modal-body font inImg">
+								<div class="modalText">
+									<h3> Item it's been added to the cart</h3>
+									<h4 class="backColor">Special offer:</h4>
+									<h5 class="backColorBorder">If you buy 5  different items you'll get 10% discount.</h5>
+									<h5 class="backColorBorder">If you buy 4 items same kind of you'll get one for FREE!!</h5>
+								</div>
+								<div><img class="deadpoolModalImg" src="images/deadpool_modal8.jpg" alt="deadpool"></div>
+							</div>
+
+						</div>
+					</div>
+				</div>
 
 
 			</div>
@@ -358,13 +388,13 @@
 		</div>
 		<div class="card searchNoMatch" v-if="comicSearch!== comic.titulo && comicSearch.length>1">
 			<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg">
-			<p class="font deadTextBook">No matches found, please try again</p>
+			<p class="font deadTextBook">No matches found, please try again.</p>
 		</div>
 		<!--------------------detailMain------------>
 
 		<div class="detailMain" v-show="active==='detailMain'">
 
-			<div class="booksMain">
+			<div class="booksMain ">
 
 
 				<div class=" container-fluid">
@@ -386,22 +416,24 @@
 									<h5 class="fontSize">{{detailBook.valoracion}}</h5>
 								</div>
 							</div>
-							<button class="font" @click="addToCart(detailBook)" data-toggle="modal" data-target="#ModalCenter">add to Cart</button>
-							<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
-								<div class="modal-dialog modal-dialog-centered" role="document">
+							<button class="font AddIpad" @click="addToCart(detailBook)" data-toggle="modal" data-target="#ModalCenter">Add to Cart</button>
+							<div class="modal fade " id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered " role="document">
 									<div class="modal-content">
 										<div class="modal-header ">
-											<h5 class="modal-title font" id="ModalLongTitle">Hey! Let me tell you something...</h5>
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+											<h2 class="modal-title font fontSizeIpad" id="ModalLongTitle">Hey! Let me tell you something...</h2>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 												<span aria-hidden="true">&times;</span>
 											</button>
 										</div>
-										<div class="modal-body font inImg">
-											<div class="modalText"><h3> Item it's been added to the cart</h3>
-											<h4>Special offer:</h4>
-											<h5>If you buy 5 or more items you'll get 10% discount.</h5>
-											<h5>If you buy 4 items same kind of you'll get one for  FREE!!</h5></div>
-											<div ><img  class="deadpoolModalImg" src="images/deadpool_modal9.jpg" alt="deadpool"></div>
+										<div class="modal-body font inImg ">
+											<div class="modalText ">
+												<h3 class="fontSizeIpad"> Item it's been added to the cart.</h3>
+												<h4 class="backColor fontSizeIpad">Special offer:</h4>
+												<h5 class="backColorBorder fontSizeIpad">If you buy 5 or more different items you'll get 10% discount.</h5>
+												<h5 class="backColorBorder fontSizeIpad ">If you buy 4 items same kind of you'll get one for FREE!!</h5>
+											</div>
+											<div><img class="deadpoolModalImg" src="images/deadpool_modal9.jpg" alt="deadpool"></div>
 										</div>
 
 									</div>
@@ -411,8 +443,8 @@
 
 					</div>
 					<div class="locateButtons">
-						<button class="font" @click="makeActive('allBookMain')">back to Books</button>
-						<button class="font" @click="makeActive('allComicMain')">back to Comics</button>
+						<button class="font AddIpad" @click="makeActive('allBookMain')">Back to Books</button>
+						<button class="font AddIpad " @click="makeActive('allComicMain')">Back to Comics</button>
 
 					</div>
 
@@ -429,24 +461,24 @@
 
 					<div class="container details">
 						<h3>Details:</h3>
-						<h5>Title: </h5>
-						<h5 class="underLineOn"> {{detailBook.titulo}}</h5>
-						<h5>Author:</h5>
-						<h5 class="underLineOn"> {{detailBook.autor}}</h5>
-						<h5>Editorial:</h5>
-						<h5 class="underLineOn">{{detailBook.editorial}}</h5>
-						<h5>Genre:</h5>
-						<h5 class="underLineOn">{{detailBook.genero}}</h5>
-						<h5>Language:</h5>
-						<h5 class="underLineOn">{{detailBook.lenguaje}}</h5>
-						<h5>Publication date:</h5>
-						<h5 class="underLineOn">{{detailBook.fecha}}</h5>
-						<h5>Publication city:</h5>
-						<h5 class="underLineOn">{{detailBook.ciudad}}</h5>
-						<h5>Measurements:</h5>
-						<h5 class="underLineOn">{{detailBook.dimensiones}}</h5>
-						<h5>Pages:</h5>
-						<h5 class="underLineOn">{{detailBook.paginas}}</h5>
+						<p>Title: </p>
+						<p class="underLineOn"> {{detailBook.titulo}}</p>
+						<p>Author:</p>
+						<p class="underLineOn"> {{detailBook.autor}}</p>
+						<p>Editorial:</p>
+						<p class="underLineOn">{{detailBook.editorial}}</p>
+						<p>Genre:</p>
+						<p class="underLineOn">{{detailBook.genero}}</p>
+						<p>Language:</p>
+						<p class="underLineOn">{{detailBook.lenguaje}}</p>
+						<p>Publication date:</p>
+						<p class="underLineOn">{{detailBook.fecha}}</p>
+						<p>Publication city:</p>
+						<p class="underLineOn">{{detailBook.ciudad}}</p>
+						<p>Measurements:</p>
+						<p class="underLineOn">{{detailBook.dimensiones}}</p>
+						<p>Pages:</p>
+						<p class="underLineOn">{{detailBook.paginas}}</p>
 
 
 
@@ -473,7 +505,7 @@
 
 		<div class="cartMain" v-show="active==='cartMain'">
 
-			<div class="booksMain">
+			<div class="booksMain  ">
 				<div class="container-fluid addButton">
 					<button class=" font " @click="makeActive('allBookMain')">Back to Books</button>
 					<button class=" font " @click="makeActive('allComicMain')">Back to Comics</button>
@@ -497,7 +529,7 @@
 									<input v-model="x.qty" type="number" min=1 class="inputQty ">
 								</div>
 
-								<div class="buttonRemove"><button @click="removeItem(index)" type="reset">remove</button></div>
+								<div class="buttonRemove font"><button @click="removeItem(index)" type="reset">Remove</button></div>
 
 
 							</div>
@@ -507,7 +539,7 @@
 
 					<div v-if="shoppingCart.length === 0">
 						<img src="images/deadwhy1.jpg" alt="deadpool" class="deadImg">
-						<p class="font deadText">Nothing on the Basket</p>
+						<p class="font deadTextBook">Nothing on the Basket.</p>
 					</div>
 				</div>
 
@@ -541,14 +573,14 @@
 					</div>
 
 
-					<div class="titleCartDiv">
+					<div class="titleCartDiv2 ">
 
 						<button type="button" class="buttonCheckOut font" data-toggle="modal" data-target="#exampleModalCenter">Check out</button></div>
 					<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 						<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title font" id="exampleModalLongTitle">Payment Page</h5>
+									<h5 class="modal-title font" id="exampleModalLongTitle">Payment page incoming...</h5>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="resetCart">
 										<span aria-hidden="true">&times;</span>
 									</button>
@@ -569,11 +601,24 @@
 
 
 
-		</div>
-		<footer class="footer">
-			<div>
-<h4 class="font textFooter">"With great power comes great responsibility"</h4>
+		</div> 
+		<footer class="footer " >
+			<div class="bottom-fixed ">
+				<!--<h4 class="font textFooter">"With great power comes great responsibility"</h4>-->
+				<div id="carouselSlidesOnly" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<h4 class="font textFooter">"With great power comes great responsibility"</h4>
+						</div>
+						<div class="carousel-item" v-for="phrase in book">
+							<h4 class="font textFooter">"{{phrase.frase}}"</h4>
+						</div>
+
+					</div>
+				</div>
+
 			</div>
+
 		</footer>
 	</div>
 	<!--bootstrap scripts-->
@@ -584,8 +629,6 @@
 	<!------------vue--------->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<!--	------js----------------->
-	<script src="bookstore.js"></script>
+<!--	<script src="bookstore.js"></script>-->
 	<script src="main.js"></script>
-</body>
-
-</html>
+</body></html>
