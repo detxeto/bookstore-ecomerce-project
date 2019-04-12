@@ -103,7 +103,7 @@ var app = new Vue({
 			this.freeItem = [];
 		},
 
-		scrollToTop() {
+		scrollToTop:function() {
 			window.scrollTo(0, 0);
 		},
 
